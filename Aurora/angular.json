@@ -25,9 +25,12 @@
               "projects/customer/src/assets"
             ],
             "styles": [
-              "projects/customer/src/styles.css"
+              "projects/customer/src/styles.css",
+              "./node_modules/bootstrap/dist/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
