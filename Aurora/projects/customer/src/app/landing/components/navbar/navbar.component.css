@@ -1,4 +1,38 @@
-.navbar-control{
+nav
+{
+    margin-top: 0;
+    padding-top: 0;
+}
+.container-fluid{
+    background-color: #044E2E;
+    margin-top: 0 ;
+    padding-top: 0 ;
+    align-items: center;
+}
+.container-fluid a img{
+    width: 40px;
+    height: 40px;
+}
+.nav-item a {
+    color: #ffff;
+}
+.searchform{
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+}
+.Register{
+    width: 200px!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.Register a{
+    text-decoration: none;
+    color:#73BA9B ;
+
+}
+#navbarSupportedContent{
 }
