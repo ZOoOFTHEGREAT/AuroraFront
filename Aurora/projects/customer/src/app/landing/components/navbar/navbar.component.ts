@@ -9,5 +9,5 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent {
     login:string = 'login';
     register:string = 'register';
-    user:number = 1;
+    user:number = 0;
 }

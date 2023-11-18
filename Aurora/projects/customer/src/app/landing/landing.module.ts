@@ -18,7 +18,8 @@ import { ProductdetailsComponent } from './components/productdetails/productdeta
     CommonModule
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ]
 })
 export class LandingModule { }
