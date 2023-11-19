@@ -11,8 +11,4 @@ export class NavbarComponent {
     login:string = 'login';
     register:string = 'register';
     user:number = 0;
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes

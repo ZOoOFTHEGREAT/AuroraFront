@@ -19,12 +19,15 @@
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
     "@coreui/angular": "^4.5.27",
+    "@coreui/icons": "^3.0.1",
+    "@coreui/icons-angular": "^4.5.27",
     "bootstrap": "^5.3.2",
-    "coreui": "^0.4.2-alpha2",
+    "coreui": "^0.1.5",
     "fontawesome": "^5.6.3",
+    "primeng": "^16.4.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "webfont": "^11.2.26",
+    "webfont": "^6.0.2",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
