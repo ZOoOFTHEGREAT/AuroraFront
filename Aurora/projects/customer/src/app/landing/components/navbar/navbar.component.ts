@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -10,4 +11,8 @@ export class NavbarComponent {
     login:string = 'login';
     register:string = 'register';
     user:number = 0;
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

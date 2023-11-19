@@ -1,1 +1,19 @@
-<p>productcard works!</p>
+<div id="productscards">
+  <div class="card" style="width: 25rem;">
+    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+</div>
+<!-- 
+  1 <app-select [data]="categories" [title]="'Categories'" (selectedValue)="filterCategory($event)" ></app-select>
+  *ngIf="!loading"
+  2 *ngFor="let item of products"
+  3 <app-product [data]="item" (item)="addToCart($event)" ></app-product>
+  4 <div class="text-center w-100" *ngIf="loading">
+      <app-spinner></app-spinner>
+    </div>
+
+-->
