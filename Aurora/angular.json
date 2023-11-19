@@ -29,7 +29,7 @@
               "./node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.js",
             ]
           },
           "configurations": {
@@ -115,8 +115,8 @@
             ],
             "tsConfig": "projects/admin/tsconfig.app.json",
             "assets": [
-              "projects/admin/src/favicon.ico",
-              "projects/admin/src/assets"
+              "projects/admin/src/assets",
+              "projects/admin/src/favicon.ico"
             ],
             "styles": [
               "projects/admin/src/styles.css",
@@ -194,5 +194,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
