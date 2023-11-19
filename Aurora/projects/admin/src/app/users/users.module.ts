@@ -10,6 +10,9 @@ import { UserdetailsComponent } from './components/userdetails/userdetails.compo
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    UserdetailsComponent
   ]
 })
 export class UsersModule { }
