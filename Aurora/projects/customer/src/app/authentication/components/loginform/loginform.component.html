@@ -1,1 +1,33 @@
-<p>loginform works!</p>
+<div class="container">
+  <h2>Sign in</h2>
+  <div>
+    <div class="d-flex justify-content-center align-items-center">
+      <img
+        class="loginImg rounded"
+        src="../../../../assets/WhatsApp Image 2023-11-10 at 7.09.00 PM (1).jpeg"
+      />
+    </div>
+    <form [formGroup]="userRegister">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          formControlName="Email"
+          type="email"
+          class="form-control"
+          id="email"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          formControlName="Password"
+          type="password"
+          class="form-control"
+          id="password"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+  </div>
+</div>

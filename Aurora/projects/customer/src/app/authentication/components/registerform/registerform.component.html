@@ -1,1 +1,139 @@
-<p>registerform works!</p>
+<div class="container">
+  <div class="formstyle">
+    <h2>Create account</h2>
+    <div class="d-flex justify-content-center align-items-center">
+      <img
+        class="registerImg rounded"
+        src="../../../../assets/WhatsApp Image 2023-11-10 at 7.09.00 PM (1).jpeg"
+      />
+    </div>
+    <form [formGroup]="userRegister">
+      <div class="mb-3">
+        <label for="username" class="form-label">User Name</label>
+        <input
+          formControlName="UserName"
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+        />
+      </div>
+      <div
+        class="alert alert-warning"
+        [hidden]="UserName?.valid || UserName?.untouched"
+      >
+        <span *ngIf="UserName?.errors?.['required']"
+          >Please Enter User Name</span
+        >
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="fname">First Name</label>
+        <input
+          formControlName="Fname"
+          type="text"
+          class="form-control"
+          id="fname"
+          name="fname"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="lname">Last Name</label>
+        <input
+          formControlName="Lname"
+          type="text"
+          class="form-control"
+          id="lname"
+          name="lname"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          formControlName="Email"
+          type="email"
+          class="form-control"
+          id="email"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div
+        class="alert alert-warning"
+        [hidden]="Email?.invalid || Email?.untouched"
+      >
+        <span *ngIf="Email?.errors?.['required']">Please Enter Email</span>
+        <span *ngIf="Email?.errors?.['pattern']"
+          >Please Enter Correct Passowrd</span
+        >
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          formControlName="Password"
+          type="password"
+          class="form-control"
+          id="password"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="phonenumber" class="form-label">Phone Number</label>
+        <input
+          formControlName="PhoneNumber"
+          type="text"
+          class="form-control"
+          id="phonenumber"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="role" class="form-label">Roles :</label>
+        <select
+          #roles
+          (change)="onSelected(roles.value)"
+          class="form-select form-select-sm mb-2"
+          aria-label=".form-select-sm example"
+        >
+          <option>Admin</option>
+          <option>Customer</option>
+        </select>
+        <input
+          formControlName="Role"
+          type="text"
+          class="form-control"
+          id="role"
+          [(ngModel)]="roleValue"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="zipcode" class="form-label">Zip Code</label>
+        <input
+          formControlName="ZipCode"
+          type="text"
+          class="form-control"
+          id="zipcode"
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="userRegister.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+
+<div>
+  {{ userRegister.value | json }}
+</div>
+<div>
+  <h2>fname</h2>
+  {{ Fname?.errors | json }}
+</div>
+<div>
+  <h2>Email</h2>
+  {{ Email?.errors | json }}
+</div>
+<div>
+  <h2>fname</h2>
+  {{ Fname?.errors | json }}
+</div>
