@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarModule } from 'primeng/sidebar';
 import { SliderComponent } from './components/slider/slider.component';
 import { CarouselModule } from 'primeng/carousel';
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CarouselModule } from 'primeng/carousel';
     ProductdetailsComponent,
     SidebarComponent,
     SliderComponent,
+    MainLayoutComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +37,6 @@ import { CarouselModule } from 'primeng/carousel';
     ProductcardComponent,
     ProductdetailsComponent,
     SliderComponent,
-  ]
+  ],
 })
-export class LandingModule { }
+export class LandingModule {}
