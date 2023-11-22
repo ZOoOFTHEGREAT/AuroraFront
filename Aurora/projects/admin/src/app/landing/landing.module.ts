@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProductComponent } from '../products/components/product/product.component';
 
 
 
@@ -10,6 +11,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    DashboardComponent,
   ]
 })
 export class LandingModule { }
