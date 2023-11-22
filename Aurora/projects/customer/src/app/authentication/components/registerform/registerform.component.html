@@ -7,7 +7,7 @@
         src="../../../../assets/WhatsApp Image 2023-11-10 at 7.09.00 PM (1).jpeg"
       />
     </div>
-    <form [formGroup]="userRegister">
+    <form (submit)="handleSubmit($event)" [formGroup]="userRegister">
       <div class="mb-3">
         <label for="username" class="form-label">User Name</label>
         <input
@@ -20,12 +20,34 @@
       </div>
       <div
         class="alert alert-warning"
-        [hidden]="UserName?.valid || UserName?.untouched"
+        *ngIf="UserName?.touched && userRegister.controls.UserName.errors?.['required']"
+      >
+        This field is required
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="userRegister.controls.UserName.touched && userRegister.controls.UserName.errors?.['maxlength']"
+      >
+        The user name is too long
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="userRegister.controls.UserName.touched && userRegister.controls.UserName.errors?.['minlength']"
+      >
+        The user name is too short
+      </div>
+
+      <!-- <div
+        class="alert alert-warning"
+        *ngIf="UserName?.invalid && UserName?.touched"
       >
         <span *ngIf="UserName?.errors?.['required']"
           >Please Enter User Name</span
         >
-      </div>
+        <span *ngIf="UserName?.errors?.['maxLength']"
+          >Max Length is 20 charchter</span
+        >
+      </div> -->
       <div class="mb-3">
         <label class="form-label" for="fname">First Name</label>
         <input
@@ -36,6 +58,24 @@
           name="fname"
         />
       </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="Fname?.touched && userRegister.controls.Fname.errors?.['required']"
+      >
+        This field is required
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="userRegister.controls.Fname.touched && userRegister.controls.Fname.errors?.['maxlength']"
+      >
+        The First name is too long
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="userRegister.controls.Fname.touched && userRegister.controls.Fname.errors?.['minlength']"
+      >
+        The First name is too short
+      </div>
       <div class="mb-3">
         <label class="form-label" for="lname">Last Name</label>
         <input
@@ -45,6 +85,24 @@
           id="lname"
           name="lname"
         />
+        <div
+          class="alert alert-warning"
+          *ngIf="Lname?.touched && userRegister.controls.Lname.errors?.['required']"
+        >
+          This field is required
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="userRegister.controls.Lname.touched && userRegister.controls.Lname.errors?.['maxlength']"
+        >
+          The Last name is too long
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="userRegister.controls.Lname.touched && userRegister.controls.Lname.errors?.['minlength']"
+        >
+          The Last name is too short
+        </div>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
@@ -55,15 +113,19 @@
           id="email"
           aria-describedby="emailHelp"
         />
-      </div>
-      <div
-        class="alert alert-warning"
-        [hidden]="Email?.invalid || Email?.untouched"
-      >
-        <span *ngIf="Email?.errors?.['required']">Please Enter Email</span>
-        <span *ngIf="Email?.errors?.['pattern']"
-          >Please Enter Correct Passowrd</span
+
+        <div
+          class="alert alert-warning"
+          *ngIf="Email?.touched && userRegister.controls.Email.errors?.['required']"
         >
+          This field is required
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="userRegister.controls.Email.touched && userRegister.controls.Email.errors?.['pattern']"
+        >
+          Please enter email in correct format
+        </div>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
@@ -74,6 +136,50 @@
           id="password"
         />
       </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="Password?.touched && userRegister.controls.Password.errors?.['required']"
+      >
+        This field is required
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="userRegister.controls.Password.touched && userRegister.controls.Password.errors?.['pattern']"
+      >
+        <ol>
+          <li>Password length between 8 and 20 characters</li>
+          <li>At least one uppercase letter</li>
+          <li>At least one lowercase letter</li>
+          <li>At least one digit (number)</li>
+          <li>Allows special characters such as !&commat;#$%^&*()_+</li>
+        </ol>
+      </div>
+      <div class="mb-3">
+        <label for="confirmpassword" class="form-label"
+          >Confirm Password:</label
+        >
+        <input
+          formControlName="ConfirmPassword"
+          type="password"
+          class="form-control"
+          id="confirmpassword"
+        />
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="ConfirmPassword?.touched && userRegister.controls.ConfirmPassword.errors?.['required']"
+      >
+        This field is required
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="
+          ConfirmPassword?.touched &&
+          userRegister.value.Password != userRegister.value.ConfirmPassword
+        "
+      >
+        Password doesn't match
+      </div>
       <div class="mb-3">
         <label for="phonenumber" class="form-label">Phone Number</label>
         <input
@@ -82,6 +188,24 @@
           class="form-control"
           id="phonenumber"
         />
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="PhoneNumber?.touched && userRegister.controls.PhoneNumber.errors?.['required']"
+      >
+        This field is required
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="userRegister.controls.PhoneNumber.touched && userRegister.controls.PhoneNumber.errors?.['maxlength']"
+      >
+        Please Enter Correct Phone Number
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="userRegister.controls.PhoneNumber.touched && userRegister.controls.PhoneNumber.errors?.['minlength']"
+      >
+        Please Enter Correct Phone Number
       </div>
       <div class="mb-3">
         <label for="role" class="form-label">Roles :</label>
@@ -102,6 +226,12 @@
           [(ngModel)]="roleValue"
         />
       </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="PhoneNumber?.touched && userRegister.controls.PhoneNumber.errors?.['required']"
+      >
+        This field is required
+      </div>
       <div class="mb-3">
         <label for="zipcode" class="form-label">Zip Code</label>
         <input
@@ -111,6 +241,25 @@
           id="zipcode"
         />
       </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="ZipCode?.touched && userRegister.controls.ZipCode.errors?.['required']"
+      >
+        This field is required
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="userRegister.controls.ZipCode.touched && userRegister.controls.ZipCode.errors?.['maxlength']"
+      >
+        Please Enter Correct Zip Code
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="userRegister.controls.ZipCode.touched && userRegister.controls.ZipCode.errors?.['minlength']"
+      >
+        Please Enter Correct Zip Code
+      </div>
+
       <button
         type="submit"
         class="btn btn-primary"
@@ -129,6 +278,11 @@
   <h2>fname</h2>
   {{ Fname?.errors | json }}
 </div>
+<div>
+  <h2>username</h2>
+  {{ UserName?.errors | json }}
+</div>
+
 <div>
   <h2>Email</h2>
   {{ Email?.errors | json }}

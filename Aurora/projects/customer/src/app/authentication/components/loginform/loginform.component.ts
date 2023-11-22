@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormControlName,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-loginform',
@@ -7,12 +13,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./loginform.component.css'],
 })
 export class LoginformComponent {
-  userRegister: FormGroup;
+  userLogin;
   roleValue?: string;
   constructor(public fB: FormBuilder) {
-    this.userRegister = fB.group({
-      Email: ['', Validators.required],
-      Password: ['', Validators.required],
+    this.userLogin = new FormGroup({
+      Email: new FormControl('', [Validators.required]),
+      Password: new FormControl('', [Validators.required]),
     });
   }
   ngOnInit(): void {
@@ -20,9 +26,9 @@ export class LoginformComponent {
   }
   // property readOnly
   get Email() {
-    return this.userRegister.get('Email');
+    return this.userLogin.get('Email');
   }
   get Password() {
-    return this.userRegister.get('Password');
+    return this.userLogin.get('Password');
   }
 }

@@ -9,9 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarModule } from 'primeng/sidebar';
 import { SidebarComponent } from '@coreui/angular';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MainLayoutComponent } from './landing/components/main-layout/main-layout.component';
+import { AccountSettingModule } from './account-setting/account-setting.module';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     LandingModule,
@@ -21,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     SidebarComponent,
     ReactiveFormsModule,
+    AccountSettingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
