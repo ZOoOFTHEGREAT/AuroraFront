@@ -8,7 +8,7 @@
           src="../../../../assets/WhatsApp Image 2023-11-10 at 7.09.00 PM (1).jpeg"
         />
       </div>
-      <form [formGroup]="userLogin">
+      <form (submit)="HandleSumbit($event)" [formGroup]="userLogin">
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
           <input
@@ -42,6 +42,9 @@
         </div>
         <button type="submit" class="btn btn-outline-success">Sign in</button>
       </form>
+    </div>
+    <div class="alert alert-warning m-2" *ngIf="isExist">
+      Please Enter Correct Data
     </div>
   </div>
 </div>

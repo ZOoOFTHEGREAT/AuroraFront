@@ -4,7 +4,10 @@ import { AccountsettingComponent } from './accountsetting/accountsetting.compone
 import { UseraddressesComponent } from './account-setting-components/useraddresses/useraddresses.component';
 import { UserpaymentsComponent } from './account-setting-components/userpayments/userpayments.component';
 import { UserAccountInformationComponent } from './account-setting-components/UserAccountInformation/UserAccountInformation.component';
-import { AppRoutingModule } from '../app-routing.module';
+import { AccountsettingRoutingModule } from './accountsetting-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddUserAddressComponent } from './account-setting-components/useraddresses/AddUserAddress/AddUserAddress.component';
+import { AddUserPaymentComponent } from './account-setting-components/userpayments/addUserPayment/addUserPayment.component';
 
 @NgModule({
   declarations: [
@@ -12,13 +15,17 @@ import { AppRoutingModule } from '../app-routing.module';
     UseraddressesComponent,
     UserpaymentsComponent,
     UserAccountInformationComponent,
+    AddUserAddressComponent,
+    AddUserPaymentComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, AccountsettingRoutingModule, ReactiveFormsModule],
   exports: [
     AccountsettingComponent,
     UseraddressesComponent,
     UserpaymentsComponent,
     UserAccountInformationComponent,
+    AddUserAddressComponent,
+    AddUserPaymentComponent,
   ],
 })
 export class AccountSettingModule {}

@@ -3,16 +3,6 @@ import ReadOrdersDto from '../Order/Orders';
 import ReadUserAddressDetailDto from './UserAddresses';
 import ReadCartDto from '../Cart/Cart';
 
-export default interface AddUserDto {
-  userName: string;
-  fname: string;
-  lname: string;
-  email: string;
-  passwordHash: string;
-  phoneNumber: string;
-  role: string;
-  zipCode: string;
-}
 export default interface ReadUserByEmailDto {
   id: string;
   userName: string;

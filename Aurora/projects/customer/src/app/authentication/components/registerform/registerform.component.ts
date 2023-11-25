@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { IRegister } from 'Dtos/User/IRegister';
 import { Router } from '@angular/router';
-import { AddUserService } from '../../services/addUser.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-registerform',
@@ -18,13 +18,14 @@ import { AddUserService } from '../../services/addUser.service';
 export class RegisterformComponent implements OnInit {
   roleValue?: string;
   userRegister;
+  tryAgainError?: string;
   emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   passwordRegex: RegExp =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,20}$/;
 
   constructor(
     private fB: FormBuilder,
-    private registerService: AddUserService,
+    private registerService: UserService,
     private router: Router
   ) {
     this.userRegister = new FormGroup({
@@ -115,7 +116,7 @@ export class RegisterformComponent implements OnInit {
         this.router.navigateByUrl('/');
       },
       error: (err: string) => {
-        console.error('calling Api Field', err);
+        this.tryAgainError == err;
       },
     });
     // this.registerService.addUser(usr).subscribe({

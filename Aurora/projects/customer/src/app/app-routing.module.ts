@@ -1,22 +1,31 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponent } from './landing/components/main-layout/main-layout.component';
-import { LoginformComponent } from './authentication/components/loginform/loginform.component';
-import { RegisterformComponent } from './authentication/components/registerform/registerform.component';
 import { CartComponent } from './cart/components/cart/cart.component';
 import { ProductdetailsComponent } from './landing/components/productdetails/productdetails.component';
 import { AccountsettingComponent } from './account-setting/accountsetting/accountsetting.component';
 import { UseraddressesComponent } from './account-setting/account-setting-components/useraddresses/useraddresses.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'accountsetting', component: AccountsettingComponent },
   { path: 'home', component: MainLayoutComponent },
-  { path: 'login', component: LoginformComponent },
-  { path: 'register', component: RegisterformComponent },
+
+  {
+    path: 'authuntication',
+    loadChildren: () =>
+      import('./authentication/authentication.module').then(
+        (m) => m.AuthenticationModule
+      ),
+  },
+  {
+    path: 'accountsetting',
+    loadChildren: () =>
+      import('./account-setting/account-setting.module').then(
+        (m) => m.AccountSettingModule
+      ),
+  },
   { path: 'cart', component: CartComponent },
   { path: 'product', component: ProductdetailsComponent },
-  { path: 'addresses', component: UseraddressesComponent },
   // {path:'orderhistory',component:}
   // {path:'placeorder',component:}
 
