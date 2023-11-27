@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { MainLayoutComponent } from './landing/components/main-layout/main-layout.component';
 import { CartComponent } from './cart/components/cart/cart.component';
 import { ProductdetailsComponent } from './landing/components/productdetails/productdetails.component';
-import { AccountsettingComponent } from './account-setting/accountsetting/accountsetting.component';
-import { UseraddressesComponent } from './account-setting/account-setting-components/useraddresses/useraddresses.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [

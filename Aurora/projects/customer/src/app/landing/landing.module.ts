@@ -11,6 +11,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { SliderComponent } from './components/slider/slider.component';
 import { CarouselModule } from 'primeng/carousel';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
     ReactiveFormsModule,
     SidebarModule,
     CarouselModule,
+    RouterModule,
   ],
   exports: [
     NavbarComponent,

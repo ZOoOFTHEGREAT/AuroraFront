@@ -6,6 +6,7 @@ import { UserAccountInformationComponent } from './account-setting-components/Us
 import { AddUserAddressComponent } from './account-setting-components/useraddresses/AddUserAddress/AddUserAddress.component';
 import { AccountsettingComponent } from './accountsetting/accountsetting.component';
 import { AddUserPaymentComponent } from './account-setting-components/userpayments/addUserPayment/addUserPayment.component';
+import { EditUserPaymentComponent } from './account-setting-components/userpayments/EditUserPayment/EditUserPayment.component';
 
 const routes: Routes = [
   { path: '', component: AccountsettingComponent },
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'userpayment',
     component: UserpaymentsComponent,
+  },
+  {
+    path: 'editpayment',
+    component: EditUserPaymentComponent,
   },
   {
     path: 'addpayment',

@@ -50,18 +50,15 @@
               />
             </svg>
           </a>
-          <div class="collapse navbar-collapse navbar-control Register">
-            <button
-              *ngIf="user == 0"
-              class="btn btn-outline-success"
-              type="submit"
-            >
-              login
-            </button>
-            <a>login</a>
-            <a href="" *ngIf="user != 0">Hello</a>
-            <a href="" *ngIf="user != 0">Name</a>
-          </div>
+          <a
+            *ngIf="!navBarIsLoggedIn"
+            routerLink="authuntication"
+            class="btn btn-outline-success"
+          >
+            Login
+          </a>
+          <h3 *ngIf="navBarIsLoggedIn" class="fw-bold">Hello</h3>
+          <div class="collapse navbar-collapse navbar-control Register"></div>
         </li>
       </ul>
     </div>

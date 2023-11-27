@@ -7,12 +7,13 @@ import { CartModule } from './cart/cart.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarModule } from 'primeng/sidebar';
-import { SidebarComponent } from '@coreui/angular';
+import { NavbarComponent, SidebarComponent } from '@coreui/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainLayoutComponent } from './landing/components/main-layout/main-layout.component';
 import { AccountSettingModule } from './account-setting/account-setting.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthunticationInterceptor } from './authentication/authuntication.interceptor';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { AuthunticationInterceptor } from './authentication/authuntication.inter
     SidebarComponent,
     ReactiveFormsModule,
     AccountSettingModule,
+    RouterModule,
   ],
   providers: [
     {

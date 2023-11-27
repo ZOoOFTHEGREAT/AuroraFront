@@ -20,6 +20,7 @@ export class LoginformComponent {
   userLogin;
   roleValue?: string;
   isExist?: string;
+  userEmail?: string;
   constructor(
     public fB: FormBuilder,
     private userServices: UserService,
@@ -46,8 +47,10 @@ export class LoginformComponent {
       email: this.userLogin.value.Email!,
       password: this.userLogin.value.Password!,
     };
+    this.userServices.userEmail.next(usrLogin.email);
     this.userServices.login(usrLogin).subscribe({
       next: () => this.router.navigateByUrl('/'),
+      complete: () => this.userServices.isLoggedIn.next(true),
       error: (err: string) => {
         console.log(err);
         this.isExist = err;

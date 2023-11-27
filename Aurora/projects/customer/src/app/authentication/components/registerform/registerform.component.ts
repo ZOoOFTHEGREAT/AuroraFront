@@ -18,7 +18,7 @@ import { UserService } from '../../services/user.service';
 export class RegisterformComponent implements OnInit {
   roleValue?: string;
   userRegister;
-  tryAgainError?: string;
+  tryAgainError?: boolean = false;
   emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   passwordRegex: RegExp =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,20}$/;
@@ -115,8 +115,8 @@ export class RegisterformComponent implements OnInit {
       next: () => {
         this.router.navigateByUrl('/');
       },
-      error: (err: string) => {
-        this.tryAgainError == err;
+      error: () => {
+        this.tryAgainError = true;
       },
     });
     // this.registerService.addUser(usr).subscribe({
@@ -132,7 +132,6 @@ export class RegisterformComponent implements OnInit {
 
   onSelected(value: string): void {
     this.roleValue = value;
-    console.log(value);
   }
 }
 // constructor(private fB: FormBuilder) {

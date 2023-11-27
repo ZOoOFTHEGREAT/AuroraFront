@@ -4,6 +4,7 @@ import { RegisterformComponent } from './components/registerform/registerform.co
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: '', component: LoginformComponent },
   { path: 'login', component: LoginformComponent },
   { path: 'register', component: RegisterformComponent },
 ];

@@ -4,7 +4,7 @@ import { ILogin } from 'Dtos/User/ILogin';
 import { IRegister } from 'Dtos/User/IRegister';
 import IToken from 'Dtos/User/IToken';
 import { environment } from 'projects/customer/src/enviroments/environment';
-import { Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,8 @@ export class UserService {
       Authorization: 'my-auth-token',
     });
   }
-
+  public isLoggedIn = new BehaviorSubject<boolean>(false);
+  public userEmail = new BehaviorSubject<string>('');
   addUser(user: IRegister): Observable<IRegister> {
     const url = `${environment.apiUrl}/api/UserAuth/register`;
     return this.httpClient.post<IRegister>(url, user);
@@ -27,6 +28,7 @@ export class UserService {
     const url = `${environment.apiUrl}/api/UserAuth/login`;
     return this.httpClient.post<IToken>(url, loginData).pipe(
       tap((tokenDto) => {
+        this.isLoggedIn.next(true);
         localStorage.setItem('token', tokenDto.token);
       })
     );

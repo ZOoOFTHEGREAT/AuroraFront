@@ -1,17 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { IAddUserPayment } from 'Dtos/User/IAddUserPayment';
 import { AccountSettingService } from '../../../AccSettingService/accountSetting.service';
+import { Router } from '@angular/router';
+import { IReadUserPaymentByUserIdDto } from 'Dtos/User/IReadUserPaymentByUserIdDto';
+import { switchMap } from 'rxjs/operators';
+import { UserService } from 'projects/customer/src/app/authentication/services/user.service';
+
 @Component({
-  selector: 'app-addUserPayment',
-  templateUrl: './addUserPayment.component.html',
-  styleUrls: ['./addUserPayment.component.css'],
+  selector: 'app-EditUserPayment',
+  templateUrl: './EditUserPayment.component.html',
+  styleUrls: ['./EditUserPayment.component.css'],
 })
-export class AddUserPaymentComponent {
+export class EditUserPaymentComponent implements OnInit {
+  userLoggedEmail?: string;
+  userId?: string;
+  userPaymentDetails?: IReadUserPaymentByUserIdDto[];
   addUserPayment;
   tryAgainError?: boolean;
   constructor(
+    private userService: UserService,
     private router: Router,
     private addPayment: AccountSettingService
   ) {
@@ -33,14 +41,40 @@ export class AddUserPaymentComponent {
       ExpireDate: new FormControl<string>('', [Validators.required]),
     });
   }
+  ngOnInit(): void {
+    this.userService.userEmail.subscribe((email) => {
+      this.userLoggedEmail = email;
+      this.addPayment
+        .getUserByEmail(this.userLoggedEmail!)
+        .pipe(switchMap((usr) => this.addPayment.getPaymentByUserId(usr.id)))
+        .subscribe({
+          next: (userPaymentDetails) => {
+            this.userPaymentDetails = userPaymentDetails;
+            let getUsr = userPaymentDetails.find(
+              (obj) => obj.userId == userPaymentDetails[0].userId
+            );
+            let addPayment = {
+              PaymentType: getUsr!.paymentType,
+              Provider: getUsr!.provider,
+              AccountNumber: getUsr!.accountNumber,
+              ExpireDate: getUsr!.expireDate,
+            };
+            this.userId = getUsr?.userId;
+            this.addUserPayment.setValue(addPayment);
+          },
+          error: (err) => console.log(err),
+        });
+    });
+  }
   handleSubmit($event: SubmitEvent) {
     $event.preventDefault;
+    console.log(`id ` + this.userId);
     let addPayment: IAddUserPayment = {
       paymentType: this.addUserPayment.value.PaymentType!,
       provider: this.addUserPayment.value.Provider!,
       accountNumber: this.addUserPayment.value.AccountNumber!,
       expireDate: this.addUserPayment.value.ExpireDate!,
-      userId: '5dc1d98e-c713-4463-b261-f7619f6a6372',
+      userId: this.userId!,
     };
     this.addPayment.addUserPayment(addPayment).subscribe({
       next: () => this.router.navigateByUrl('/accountsetting'),
