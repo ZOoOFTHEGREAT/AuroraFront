@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IReadOrdersByUserIdDto } from 'Dtos/Order/IReadOrdersByUserIdDto';
+import { ReadAllShippingCompanies } from 'Dtos/Shipping Company/ReadAllShippingCompanies';
 import { IAddUserAddress } from 'Dtos/User/IAddUserAddress';
 import { IAddUserPayment } from 'Dtos/User/IAddUserPayment';
 import { IReadUserAddresByUserIdDto } from 'Dtos/User/IReadUserAddresByUserIdDto';
@@ -20,9 +22,17 @@ export class AccountSettingService {
     const apiUrl = `${environment.apiUrl}/api/User/email/${email}`;
     return this.httpClient.get<IReadUserByEmailDto>(apiUrl);
   }
+  getOrderByUserId(userId:string):Observable<IReadOrdersByUserIdDto[]>{
+    const apiUrl =`${environment.apiUrl}/api/Order/Byuser/${userId}`
+return this.httpClient.get<IReadOrdersByUserIdDto[]>(apiUrl);
+  }
   deletePayment(id: number): Observable<IAddUserAddress> {
     const apiUrl = `${environment.apiUrl}/api/UserPayment/${id}`;
     return this.httpClient.delete<IAddUserAddress>(apiUrl);
+  }
+  getAllShippingCompanies():Observable<ReadAllShippingCompanies[]>{
+    const apiUrl = `${environment.apiUrl}/api/ShippingCompany/ShippingCompany`;
+   return this.httpClient.get<ReadAllShippingCompanies[]>(apiUrl)
   }
   getPaymentByUserId(
     userId: string

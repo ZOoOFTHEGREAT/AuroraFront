@@ -10,9 +10,11 @@ import { EditUserPaymentComponent } from './account-setting-components/userpayme
 import { EditUserAddressComponent } from './account-setting-components/useraddresses/EditUserAddress/EditUserAddress.component';
 import { UpdatePasswordComponent } from './account-setting-components/UserAccountInformation/UpdatePassword/UpdatePassword.component';
 import { accountsettingGuard } from '../authentication/accountsetting.guard';
+import { OrderdetailsComponent } from './account-setting-components/orderdetails/orderdetails.component';
 
 const routes: Routes = [
   { path: '', component: AccountsettingComponent },
+  {path:'userorders',component:OrderdetailsComponent},
   { path: 'useraddress', component: UseraddressesComponent },
   {
     path: 'userpayment',

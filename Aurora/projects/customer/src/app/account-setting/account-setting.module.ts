@@ -11,6 +11,8 @@ import { AddUserPaymentComponent } from './account-setting-components/userpaymen
 import { EditUserPaymentComponent } from './account-setting-components/userpayments/EditUserPayment/EditUserPayment.component';
 import { EditUserAddressComponent } from './account-setting-components/useraddresses/EditUserAddress/EditUserAddress.component';
 import { UpdatePasswordComponent } from './account-setting-components/UserAccountInformation/UpdatePassword/UpdatePassword.component';
+import { OrderdetailsComponent } from './account-setting-components/orderdetails/orderdetails.component';
+import { PlaceorderComponent } from '../cart/components/placeorder/placeorder.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { UpdatePasswordComponent } from './account-setting-components/UserAccoun
     EditUserPaymentComponent,
     EditUserAddressComponent,
     UpdatePasswordComponent,
+    OrderdetailsComponent,
+    PlaceorderComponent
   ],
   imports: [
     CommonModule,
@@ -40,6 +44,8 @@ import { UpdatePasswordComponent } from './account-setting-components/UserAccoun
     EditUserPaymentComponent,
     EditUserAddressComponent,
     UpdatePasswordComponent,
+    OrderdetailsComponent,
+    PlaceorderComponent
   ],
 })
 export class AccountSettingModule {}

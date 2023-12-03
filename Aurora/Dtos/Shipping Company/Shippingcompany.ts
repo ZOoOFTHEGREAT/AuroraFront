@@ -10,11 +10,11 @@ export default interface ReadShippingCompaniesDetailsDto {
     webSite: string;
     telephone: string;
 }
-export default interface ReadShippingCompaniesDto {
-    id: number;
-    name: string;
-    numberOfOrders: number;
-}
+// export default interface ReadShippingCompaniesDto {
+//     id: number;
+//     name: string;
+//     numberOfOrders: number;
+// }
 export default interface UpdateShippinCompanyDto {
     id: number;
     servicePrice: number;
