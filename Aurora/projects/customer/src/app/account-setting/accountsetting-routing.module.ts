@@ -7,6 +7,9 @@ import { AddUserAddressComponent } from './account-setting-components/useraddres
 import { AccountsettingComponent } from './accountsetting/accountsetting.component';
 import { AddUserPaymentComponent } from './account-setting-components/userpayments/addUserPayment/addUserPayment.component';
 import { EditUserPaymentComponent } from './account-setting-components/userpayments/EditUserPayment/EditUserPayment.component';
+import { EditUserAddressComponent } from './account-setting-components/useraddresses/EditUserAddress/EditUserAddress.component';
+import { UpdatePasswordComponent } from './account-setting-components/UserAccountInformation/UpdatePassword/UpdatePassword.component';
+import { accountsettingGuard } from '../authentication/accountsetting.guard';
 
 const routes: Routes = [
   { path: '', component: AccountsettingComponent },
@@ -15,6 +18,7 @@ const routes: Routes = [
     path: 'userpayment',
     component: UserpaymentsComponent,
   },
+  { path: 'editaddress/:id', component: EditUserAddressComponent },
   {
     path: 'editpayment',
     component: EditUserPaymentComponent,
@@ -23,14 +27,19 @@ const routes: Routes = [
     path: 'addpayment',
     component: AddUserPaymentComponent,
   },
-  { path: 'userinfo', component: UserAccountInformationComponent },
+  // { path: 'userinfo', component: UserAccountInformationComponent },
   {
     path: 'addaddress',
     component: AddUserAddressComponent,
   },
   {
     path: 'accountinfo',
+    canActivate: [accountsettingGuard],
     component: UserAccountInformationComponent,
+  },
+  {
+    path: 'changepw',
+    component: UpdatePasswordComponent,
   },
 ];
 

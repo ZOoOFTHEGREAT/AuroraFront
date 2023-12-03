@@ -59,6 +59,12 @@
           </a>
           <h3 *ngIf="navBarIsLoggedIn" class="fw-bold">Hello</h3>
           <div class="collapse navbar-collapse navbar-control Register"></div>
+          <a
+            *ngIf="navBarIsLoggedIn"
+            class="btn btn-outline-success"
+            (click)="handleLogOut($event)"
+            >LogOut</a
+          >
         </li>
       </ul>
     </div>
