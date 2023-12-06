@@ -14,6 +14,8 @@
             class="btn btn-outline-success"
             type="button"
             value="Go To Orders"
+            routerLink="userorders"
+
           />
         </div>
       </div>
@@ -26,12 +28,25 @@
           <p class="card-text">
             Mange or add payemnts methods and view your transactions.
           </p>
-          <input
-            class="btn btn-outline-success"
-            type="button"
-            value="Go to Payments"
-            routerLink="userpayment"
-          />
+          <div class="row d-flex justify-content-center">
+            <div class="col-5">
+              <input
+                class="btn btn-outline-success"
+                type="button"
+                value="Go to Payments"
+                routerLink="userpayment"
+              />
+            </div>
+            <div class="col-5">
+              <button
+                class="btn btn-outline-success"
+                type="button"
+                routerLink="/addpayment"
+              >
+                Add Payment
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -46,12 +61,24 @@
           <p class="card-text">
             Manage password, email, mobile and security settings
           </p>
-          <input
-            class="btn btn-outline-success"
-            type="button"
-            value="Go To Setting"
-            routerLink="userinfo"
-          />
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-5 mb-3">
+            <input
+              class="btn btn-outline-success"
+              type="button"
+              value="Account Data"
+              routerLink="accountinfo"
+            />
+          </div>
+          <div class="col-5 mb-3">
+            <input
+              class="btn btn-outline-success"
+              type="button"
+              value="Change Password"
+              routerLink="changepw"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -61,12 +88,24 @@
           <h3 class="card-title fw-bold">Your Address</h3>
           <img class="img mb-2" src="../../../../assets/yourAddressIcon.png" />
           <p class="card-text">Edit , remove or set default address</p>
-          <input
-            class="btn btn-outline-success"
-            type="button"
-            value="Go To Addresses"
-            routerLink="useraddress"
-          />
+          <div class="row d-flex justify-content-center">
+            <div class="col-5">
+              <input
+                class="btn btn-outline-success"
+                type="button"
+                value="Go To Addresses"
+                routerLink="useraddress"
+              />
+            </div>
+            <div class="col-5">
+              <input
+                class="btn btn-outline-success"
+                type="button"
+                value="Add Address"
+                routerLink="/addaddress"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

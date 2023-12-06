@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccountSettingService } from '../../../AccSettingService/accountSetting.service';
 import { IAddUserAddress } from 'Dtos/User/IAddUserAddress';
+import { UserService } from 'projects/customer/src/app/authentication/services/user.service';
+import { IReadUserByEmailDto } from 'Dtos/User/IReadUserByEmailDto';
 
 @Component({
   selector: 'app-AddUserAddress',
@@ -11,8 +13,11 @@ import { IAddUserAddress } from 'Dtos/User/IAddUserAddress';
 })
 export class AddUserAddressComponent implements OnInit {
   addUserAddress;
-  tryAgainError?: string;
+  isError?: boolean = false;
+  userEmail?: string;
+  usr?: IReadUserByEmailDto;
   constructor(
+    private userService: UserService,
     private router: Router,
     private addAddress: AccountSettingService
   ) {
@@ -43,6 +48,13 @@ export class AddUserAddressComponent implements OnInit {
       ]),
     });
   }
+  ngOnInit(): void {
+    this.userService.userEmail.subscribe((email) => (this.userEmail = email));
+    this.addAddress.getUserByEmail(this.userEmail!).subscribe({
+      next: (usr) => (this.usr = usr),
+      error: (err) => console.error(err),
+    });
+  }
   handleSubmit($event: SubmitEvent) {
     $event.preventDefault;
     let addAddress: IAddUserAddress = {
@@ -51,18 +63,16 @@ export class AddUserAddressComponent implements OnInit {
       lineTwo: this.addUserAddress.value.LineTwo!,
       country: this.addUserAddress.value.Country!,
       city: this.addUserAddress.value.City!,
-      userId: '5dc1d98e-c713-4463-b261-f7619f6a6372',
+      userId: this.usr?.id!,
     };
     this.addAddress.addUserAddress(addAddress).subscribe({
-      next: () => this.router.navigateByUrl('/'),
-      error: (err: string) => {
-        this.tryAgainError == err;
+      next: () => this.router.navigateByUrl('/accountsetting/useraddress'),
+      error: (err: boolean) => {
+        this.isError = true;
       },
     });
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
   get Address() {
     return this.addUserAddress.get('Address');
   }

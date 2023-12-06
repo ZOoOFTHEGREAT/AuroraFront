@@ -3,31 +3,99 @@
     <div class="col-6 mt-2 mb-2 align-items-center">
       <div class="card justify-content-center edit">
         <div class="card-body align-items-center">
-          <h3 class="card-title fw-bold">Your Address</h3>
-          <h4>Name</h4>
-          <p>street</p>
-          <p>alexandria/egy</p>
-          <p>phone</p>
-          <div class="row justify-content-center">
-            <input
-              class="btn btn-primary col-3 m-3"
-              type="button"
-              value="Add Address"
-              routerLink="/addaddress"
-            />
-            <input
-              class="btn btn-primary col-3 m-3"
-              type="button"
-              value="Edit Address"
-            />
-            <input
-              class="btn btn-primary col-3 m-3"
-              type="button"
-              value="Remove Address"
-            />
+          <h3 class="card-title fw-bold">Your Addresses</h3>
+          <div *ngIf="!userAddress">
+            <div class="d-flex justify-content-center">
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let item of userAddress">
+            <p>Address :{{ item.address }}</p>
+            <p>Line One :{{ item.lineOne }}</p>
+            <p *ngIf="item.lineTwo">Line Two :{{ item.lineTwo }}</p>
+            <p>City :{{ item.city }}</p>
+            <p>Country :{{ item.country }}</p>
+            <div class="row justify-content-center">
+              <div class="col-3">
+                <input
+                  class="btn btn-success"
+                  type="button"
+                  value="Add Address"
+                  routerLink="/addaddress"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  class="btn btn-success"
+                  type="button"
+                  value="Edit Address"
+                  routerLink="/editaddress/{{ item.id }}"
+                />
+              </div>
+              <div class="col-3">
+                <!-- Button trigger modal -->
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  Delete
+                </button>
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="exampleModal"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                          Delete Address
+                        </h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">Are you sure ?</div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-success"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button
+                          (click)="handleDelete(item.id)"
+                          type="button"
+                          class="btn btn-success"
+                          data-bs-dismiss="modal"
+                        >
+                          Save changes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <a class="col-3 btn btn-success" routerLink="/accountsetting">
+        Back to settings
+      </a>
     </div>
   </div>
 </div>

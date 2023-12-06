@@ -1,0 +1,159 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-6 mt-2">
+      <h3 class="card-title fw-bold">Add Address</h3>
+      <div class="card">
+        <div class="card-body">
+          <form (submit)="handleSubmit($event)" [formGroup]="addUserAddress">
+            <div class="mb-3">
+              <label for="username" class="form-label">Address</label>
+              <input
+                formControlName="Address"
+                type="text"
+                class="form-control"
+                id="address"
+                name="username"
+              />
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="Address?.touched && addUserAddress.controls.Address.errors?.['required']"
+            >
+              This field is required
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="addUserAddress.controls.Address.touched && addUserAddress.controls.Address.errors?.['maxlength']"
+            >
+              Enter Correct Address
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="addUserAddress.controls.Address.touched && addUserAddress.controls.Address.errors?.['minlength']"
+            >
+              Enter Correct Address
+            </div>
+            <div class="mb-3">
+              <label for="lineone" class="form-label">Line One</label>
+              <input
+                formControlName="LineOne"
+                type="text"
+                class="form-control"
+                id="lineone"
+                name="lineone"
+              />
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="LineOne?.touched && addUserAddress.controls.LineOne.errors?.['required']"
+            >
+              This field is required
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="addUserAddress.controls.LineOne.touched && addUserAddress.controls.LineOne.errors?.['maxlength']"
+            >
+              Enter Correct Line
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="addUserAddress.controls.LineOne.touched && addUserAddress.controls.LineOne.errors?.['minlength']"
+            >
+              Enter Correct Line
+            </div>
+            <div class="mb-3">
+              <label for="LineTwo" class="form-label">Line Two</label>
+              <input
+                formControlName="LineTwo"
+                type="text"
+                class="form-control"
+                id="LineTwo"
+                name="LineTwo"
+              />
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="addUserAddress.controls.LineTwo.touched && addUserAddress.controls.LineTwo.errors?.['maxlength']"
+            >
+              Enter Correct Line
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="addUserAddress.controls.LineTwo.touched && addUserAddress.controls.LineTwo.errors?.['minlength']"
+            >
+              Enter Correct Line
+            </div>
+            <div class="mb-3">
+              <label for="City" class="form-label">City</label>
+              <input
+                formControlName="City"
+                type="text"
+                class="form-control"
+                id="City"
+                name="City"
+              />
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="City?.touched && addUserAddress.controls.City.errors?.['required']"
+            >
+              This field is required
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="addUserAddress.controls.City.touched && addUserAddress.controls.City.errors?.['maxlength']"
+            >
+              Enter Correct City
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="addUserAddress.controls.City.touched && addUserAddress.controls.City.errors?.['minlength']"
+            >
+              Enter Correct City
+            </div>
+            <div class="mb-3">
+              <label for="Country" class="form-label">Country</label>
+              <input
+                formControlName="Country"
+                type="text"
+                class="form-control"
+                id="Country"
+                name="Country"
+              />
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="Country?.touched && addUserAddress.controls.Country.errors?.['required']"
+            >
+              This field is required
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="addUserAddress.controls.Country.touched && addUserAddress.controls.Country.errors?.['maxlength']"
+            >
+              Enter Correct Country
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="addUserAddress.controls.Country.touched && addUserAddress.controls.Country.errors?.['minlength']"
+            >
+              Enter Correct Country
+            </div>
+            <div class="alert alert-warning" *ngIf="isError">
+              Please Try Again
+            </div>
+            <div class="row d-flex justify-content-between">
+              <button class="col-5 btn btn-success">Submit</button>
+              <a
+                class="col-5 btn btn-success"
+                routerLink="/accountsetting/useraddress"
+              >
+                Back
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

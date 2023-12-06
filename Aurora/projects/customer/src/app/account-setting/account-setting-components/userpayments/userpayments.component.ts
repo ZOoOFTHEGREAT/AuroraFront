@@ -14,11 +14,14 @@ export class UserpaymentsComponent implements OnInit {
   userLoggedEmail?: string;
   userId: string = '';
   userPaymentDetails?: IReadUserPaymentByUserIdDto[];
+  propertyName: any;
   constructor(
     private userPayment: AccountSettingService,
     private user: UserService
   ) {}
-
+  handleDelete(id: number) {
+    this.userPayment.deletePayment(id).subscribe();
+  }
   ngOnInit(): void {
     this.user.userEmail.subscribe((email) => {
       this.userLoggedEmail = email;
@@ -28,9 +31,6 @@ export class UserpaymentsComponent implements OnInit {
         .subscribe({
           next: (userPaymentDetails) => {
             this.userPaymentDetails = userPaymentDetails;
-            console.log('------------------------');
-            console.log(this.userPaymentDetails);
-            console.log('------------------------');
           },
           error: (err) => console.log(err),
         });

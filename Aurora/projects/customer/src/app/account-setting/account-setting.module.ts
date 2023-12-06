@@ -5,10 +5,14 @@ import { UseraddressesComponent } from './account-setting-components/useraddress
 import { UserpaymentsComponent } from './account-setting-components/userpayments/userpayments.component';
 import { UserAccountInformationComponent } from './account-setting-components/UserAccountInformation/UserAccountInformation.component';
 import { AccountsettingRoutingModule } from './accountsetting-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddUserAddressComponent } from './account-setting-components/useraddresses/AddUserAddress/AddUserAddress.component';
 import { AddUserPaymentComponent } from './account-setting-components/userpayments/addUserPayment/addUserPayment.component';
 import { EditUserPaymentComponent } from './account-setting-components/userpayments/EditUserPayment/EditUserPayment.component';
+import { EditUserAddressComponent } from './account-setting-components/useraddresses/EditUserAddress/EditUserAddress.component';
+import { UpdatePasswordComponent } from './account-setting-components/UserAccountInformation/UpdatePassword/UpdatePassword.component';
+import { OrderdetailsComponent } from './account-setting-components/orderdetails/orderdetails.component';
+import { PlaceorderComponent } from '../cart/components/placeorder/placeorder.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +23,17 @@ import { EditUserPaymentComponent } from './account-setting-components/userpayme
     AddUserAddressComponent,
     AddUserPaymentComponent,
     EditUserPaymentComponent,
+    EditUserAddressComponent,
+    UpdatePasswordComponent,
+    OrderdetailsComponent,
+    PlaceorderComponent
   ],
-  imports: [CommonModule, AccountsettingRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    AccountsettingRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   exports: [
     AccountsettingComponent,
     UseraddressesComponent,
@@ -29,6 +42,10 @@ import { EditUserPaymentComponent } from './account-setting-components/userpayme
     AddUserAddressComponent,
     AddUserPaymentComponent,
     EditUserPaymentComponent,
+    EditUserAddressComponent,
+    UpdatePasswordComponent,
+    OrderdetailsComponent,
+    PlaceorderComponent
   ],
 })
 export class AccountSettingModule {}

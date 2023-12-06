@@ -1,9 +1,9 @@
-export default interface AddPaymentDetailDto {
-    amount: number;
-    status: boolean;
-    orderId: number;
-    userPaymentId: number;
-}
+// export default interface AddPaymentDetailDto {
+//     amount: number;
+//     status: boolean;
+//     orderId: number;
+//     userPaymentId: number;
+// }
 export default interface ReadAllPaymentDetailsDto {
     id: number;
     amount: number;
@@ -26,11 +26,11 @@ export default interface ReadPaymentDetailsByUserPaymentDto {
     date: string;
     orderId: number;
 }
-export default interface ReadPaymentDetailsDto {
-    amount: number;
-    status: boolean;
-    date: string;
-    orderId: number;
-    userPaymentId: number;
-}
+// export default interface ReadPaymentDetailsDto {
+//     amount: number;
+//     status: boolean;
+//     date: string;
+//     orderId: number;
+//     userPaymentId: number;
+// }
 

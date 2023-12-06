@@ -47,13 +47,13 @@ export default interface ReadUserDetailsByIdDto {
   userPayments: ReadUserPaymentDetailDto[];
   userAddresses: ReadUserAddressDetailDto[];
 }
-export default interface UpdateUserDto {
-  id: string;
-  userName: string;
-  fname: string;
-  lname: string;
-  email: string;
-  passwordHash: string;
-  phoneNumber: string;
-  zipCode: string;
-}
+// export default interface UpdateUserDto {
+//   id: string;
+//   userName: string;
+//   fname: string;
+//   lname: string;
+//   email: string;
+//   passwordHash: string;
+//   phoneNumber: string;
+//   zipCode: string;
+// }

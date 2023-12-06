@@ -1,35 +1,209 @@
-<p>UserAccountInformation works!</p>
 <div class="container">
-  <div class="card editInfo mb-2">
-    <h5 class="card-header">Name</h5>
-    <div class="card-body row">
-      <label class="fw-bold">Name :</label>
-      <p>Omr yosser</p>
-      <a href="#" class="btn btn-outline-success w-50 m-auto">Edit</a>
+  <div class="formstyle">
+    <h2>Update account</h2>
+    <div class="d-flex justify-content-center align-items-center">
+      <img
+        class="registerImg rounded"
+        src="../../../../assets/WhatsApp Image 2023-11-10 at 7.09.00 PM (1).jpeg"
+      />
     </div>
-  </div>
-  <div class="card editInfo mb-2">
-    <h5 class="card-header">Email</h5>
-    <div class="card-body row">
-      <label class="fw-bold">Emaik :</label>
-      <p>Omr yossergmail.com</p>
-      <a href="#" class="btn btn-outline-success w-50 m-auto">Edit</a>
-    </div>
-  </div>
-  <div class="card editInfo mb-2">
-    <h5 class="card-header">Primay mobile number :</h5>
-    <div class="card-body row">
-      <label class="fw-bold">Mobile number :</label>
-      <p>01111113907</p>
-      <a href="#" class="btn btn-outline-success w-50 m-auto">Edit</a>
-    </div>
-  </div>
-  <div class="card editInfo mb-2">
-    <h5 class="card-header">Password</h5>
-    <div class="card-body row">
-      <label class="fw-bold">Passowrd :</label>
-      <p>********</p>
-      <a href="#" class="btn btn-outline-success w-50 m-auto">Edit</a>
-    </div>
+    <form (submit)="handleSubmit($event)" [formGroup]="updateUserForm">
+      <div class="mb-3">
+        <label for="username" class="form-label">User Name</label>
+        <input
+          formControlName="UserName"
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+        />
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="UserName?.touched && updateUserForm.controls.UserName.errors?.['required']"
+      >
+        This field is required
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="updateUserForm.controls.UserName.touched && updateUserForm.controls.UserName.errors?.['maxlength']"
+      >
+        The user name is too long
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="updateUserForm.controls.UserName.touched && updateUserForm.controls.UserName.errors?.['minlength']"
+      >
+        The user name is too short
+      </div>
+
+      <!-- <div
+        class="alert alert-warning"
+        *ngIf="UserName?.invalid && UserName?.touched"
+      >
+        <span *ngIf="UserName?.errors?.['required']"
+          >Please Enter User Name</span
+        >
+        <span *ngIf="UserName?.errors?.['maxLength']"
+          >Max Length is 20 charchter</span
+        >
+      </div> -->
+      <div class="mb-3">
+        <label class="form-label" for="fname">First Name</label>
+        <input
+          formControlName="Fname"
+          type="text"
+          class="form-control"
+          id="fname"
+          name="fname"
+        />
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="Fname?.touched && updateUserForm.controls.Fname.errors?.['required']"
+      >
+        This field is required
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="updateUserForm.controls.Fname.touched && updateUserForm.controls.Fname.errors?.['maxlength']"
+      >
+        The First name is too long
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="updateUserForm.controls.Fname.touched && updateUserForm.controls.Fname.errors?.['minlength']"
+      >
+        The First name is too short
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="lname">Last Name</label>
+        <input
+          formControlName="Lname"
+          type="text"
+          class="form-control"
+          id="lname"
+          name="lname"
+        />
+        <div
+          class="alert alert-warning"
+          *ngIf="Lname?.touched && updateUserForm.controls.Lname.errors?.['required']"
+        >
+          This field is required
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="updateUserForm.controls.Lname.touched && updateUserForm.controls.Lname.errors?.['maxlength']"
+        >
+          The Last name is too long
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="updateUserForm.controls.Lname.touched && updateUserForm.controls.Lname.errors?.['minlength']"
+        >
+          The Last name is too short
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          formControlName="Email"
+          type="email"
+          class="form-control"
+          id="email"
+          aria-describedby="emailHelp"
+        />
+
+        <div
+          class="alert alert-warning"
+          *ngIf="Email?.touched && updateUserForm.controls.Email.errors?.['required']"
+        >
+          This field is required
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="updateUserForm.controls.Email.touched && updateUserForm.controls.Email.errors?.['pattern']"
+        >
+          Please enter email in correct format
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="phonenumber" class="form-label">Phone Number</label>
+        <input
+          formControlName="PhoneNumber"
+          type="text"
+          class="form-control"
+          id="phonenumber"
+        />
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="PhoneNumber?.touched && updateUserForm.controls.PhoneNumber.errors?.['required']"
+      >
+        This field is required
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="updateUserForm.controls.PhoneNumber.touched && updateUserForm.controls.PhoneNumber.errors?.['maxlength']"
+      >
+        Please Enter Correct Phone Number
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="updateUserForm.controls.PhoneNumber.touched && updateUserForm.controls.PhoneNumber.errors?.['minlength']"
+      >
+        Please Enter Correct Phone Number
+      </div>
+      <div class="mb-3">
+        <label for="zipcode" class="form-label">Zip Code</label>
+        <input
+          formControlName="ZipCode"
+          type="text"
+          class="form-control"
+          id="zipcode"
+        />
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="ZipCode?.touched && updateUserForm.controls.ZipCode.errors?.['required']"
+      >
+        This field is required
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="updateUserForm.controls.ZipCode.touched && updateUserForm.controls.ZipCode.errors?.['maxlength']"
+      >
+        Please Enter Correct Zip Code
+      </div>
+      <div
+        class="alert alert-warning"
+        *ngIf="updateUserForm.controls.ZipCode.touched && updateUserForm.controls.ZipCode.errors?.['minlength']"
+      >
+        Please Enter Correct Zip Code
+      </div>
+      <div class="alert alert-warning" *ngIf="tryAgainError">
+        This user name is already exist
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-5 text-center">
+          <button
+            type="submit"
+            class="btn btn-outline-success"
+            [disabled]="updateUserForm.invalid"
+          >
+            Submit
+          </button>
+        </div>
+        <div class="col-5 text-center">
+          <button
+            type="submit"
+            class="btn btn-outline-success"
+            routerLink="/accountsetting"
+          >
+            Back
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

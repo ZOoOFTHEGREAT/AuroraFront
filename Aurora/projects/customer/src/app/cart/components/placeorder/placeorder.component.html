@@ -1,0 +1,209 @@
+
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 mb-4">
+        
+
+        <!-- Checkout -->
+        <div class="card shadow-0 border">
+          <div class="p-4">
+            <h5 class="card-title mb-3">User Details</h5>
+            <div>
+              
+            </div>
+            <div class="row">
+              <div class="col-6 mb-3">
+                <label class="mb-0">Name :</label>
+                <div class="form-outline">
+                  <input type="text" readonly class="form-control-plaintext" id="staticUserName" value="{{userDetails.userName}}">
+                </div>
+              </div>
+
+
+              <div class="col-6 mb-3">
+                <label class="mb-0">Phone :</label>
+                <div class="form-outline">
+                  <input type="text" readonly class="form-control-plaintext" id="staticPhone" value={{userDetails.phoneNumber}}>
+                </div>
+              </div>
+
+              <div class="col-6 mb-3">
+                <label class="mb-0">Email :</label>
+                <div class="form-outline">
+                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value={{userDetails.email}}>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <h5 class="card-title mb-3">Shipping info</h5>
+
+            <div class="row mb-3">
+              <div class="col-lg-4 mb-3">
+                <!-- Default checked radio -->
+                <div class="form-check h-100 border rounded-3">
+                  <div class="p-3">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Express delivery <br />
+                      <small class="text-muted">3-4 days via Fedex </small>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-3">
+                <!-- Default radio -->
+                <div class="form-check h-100 border rounded-3">
+                  <div class="p-3">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Post office <br />
+                      <small class="text-muted">20-30 days via post </small>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-3">
+                <!-- Default radio -->
+                <div class="form-check h-100 border rounded-3">
+                  <div class="p-3">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
+                    <label class="form-check-label" for="flexRadioDefault3">
+                      Self pick-up <br />
+                      <small class="text-muted">Come to our shop </small>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4" />
+
+            <h5 class="card-title mb-3">Payement Method</h5>
+
+            <div class="row mb-3">
+              <div class="col-lg-4 mb-3">
+                <!-- Default checked radio -->
+                <div class="form-check h-100 border rounded-3">
+                  <div class="p-3">
+                    <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio1" checked />
+                    <label class="form-check-label" for="flexRadio1">
+                      first method<br />
+                      
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-3">
+                <!-- Default radio -->
+                <div class="form-check h-100 border rounded-3">
+                  <div class="p-3">
+                    <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio2" />
+                    <label class="form-check-label" for="flexRadio2">
+                      Second method <br />
+                      
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-3">
+                <!-- Default radio -->
+                <div class="form-check h-100 border rounded-3">
+                  <div class="p-3">
+                    <input class="form-check-input" type="radio"   value="male"  name="flexRadio" id="flexRadio3" />
+                    <label class="form-check-label" for="flexRadio3">
+                      Third sadsdasda<br />
+                     
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+           
+            <div class="card">
+              <div class="card-header">
+               User address
+              </div>
+              <select class="custom-select">
+                <option selected>Open this select menu</option>
+                <option value="1">alaqaba street alexandria egypt </option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+              <br/>
+
+            <form>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Selected Address label</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="staticAddress" value="Selected adress">
+                </div>
+              </div>
+              
+            </form>
+
+              
+            <form>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">shipping ID</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="staticShippingID" value="Selected shippingID">
+                </div>
+              </div>
+            </form>
+
+
+            <div class="float-end">
+              <button class="btn btn-dark border">Cancel</button>
+              <button class="btn btn-primary shadow-5 border bg-success">Continue</button>
+            </div>
+          </div>
+        </div>
+        <!-- Checkout -->
+      </div>
+      <div class="col-xl-4 col-lg-4 d-flex justify-content-center justify-content-lg-end">
+        <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px;">
+
+          <hr />
+          <h6 class="text-dark my-4">Items in cart</h6>
+
+          <div class="d-flex align-items-center mb-4">
+            <div class="me-3 position-relative">
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-secondary">
+                1
+              </span>
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Item name</h5>
+                  <p class="card-text">Product price and details</p>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label>Quantity :</label>
+
+            <span class="mb-2">Quant:</span>
+          </div>
+          <div>
+            <label>Price :</label>
+            <span class="mb-2">Price</span>
+          </div>
+          <hr />
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">Total price:</p>
+            <p class="mb-2 fw-bold">$00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

@@ -1,14 +1,14 @@
 <div class="container">
-  <div *ngIf="!userPaymentDetails">
-    <div class="d-flex justify-content-center">
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-  </div>
   <!-- if not adding payment details show add payment method if not show your payments -->
   <div class="editPayment">
     <h2>Your Payments</h2>
+    <div *ngIf="!userPaymentDetails">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
     <div *ngFor="let payments of userPaymentDetails">
       <div class="mt-2 mb-2 align-items-center">
         <div class="card justify-content-center edit">
@@ -30,19 +30,71 @@
               <label class="fw-bold">Expire Date:</label>
               <p>{{ payments.expireDate }}</p>
             </div>
-            <div class="row justify-content-center">
-              <input
-                class="btn btn-outline-success col-4 m-3"
-                type="button"
-                value="Add Payment Method"
-                routerLink="/addpayment"
-              />
-              <input
-                class="btn btn-outline-success col-4 m-3"
-                type="button"
-                value="Edit Payment"
-                routerLink="/editpayment"
-              />
+            <div class="row d-flex justify-content-center">
+              <div class="col-6">
+                <button
+                  class="btn btn-success"
+                  type="button"
+                  routerLink="/addpayment"
+                >
+                  Add Payment Method
+                </button>
+              </div>
+              <div class="col-6">
+                <!-- Button trigger modal -->
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  Delete Payment
+                </button>
+
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="exampleModal"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                          Delete Payment
+                        </h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">Are you sure ?</div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-success"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button
+                          (click)="handleDelete(payments.id)"
+                          type="button"
+                          class="btn btn-success"
+                          routerLink="/accountsetting"
+                          data-bs-dismiss="modal"
+                        >
+                          Save changes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

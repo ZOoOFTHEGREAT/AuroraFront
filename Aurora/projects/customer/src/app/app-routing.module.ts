@@ -3,6 +3,7 @@ import { MainLayoutComponent } from './landing/components/main-layout/main-layou
 import { CartComponent } from './cart/components/cart/cart.component';
 import { ProductdetailsComponent } from './landing/components/productdetails/productdetails.component';
 import { RouterModule, Routes } from '@angular/router';
+import { accountsettingGuard } from './authentication/accountsetting.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'accountsetting',
+    canActivate: [accountsettingGuard],
     loadChildren: () =>
       import('./account-setting/account-setting.module').then(
         (m) => m.AccountSettingModule

@@ -15,6 +15,11 @@ export class NavbarComponent implements OnInit {
       this.navBarIsLoggedIn = isLogged;
     });
   }
+  handleLogOut(e: Event) {
+    e.preventDefault;
+    this.userServ.isLoggedIn.next(false);
+    localStorage.removeItem('token');
+  }
   login: string = 'login';
   register: string = 'register';
   user: number = 0;

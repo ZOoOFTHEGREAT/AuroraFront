@@ -15,6 +15,8 @@ import { UserService } from 'projects/customer/src/app/authentication/services/u
 export class EditUserPaymentComponent implements OnInit {
   userLoggedEmail?: string;
   userId?: string;
+  accountNumber?: string;
+  provider?: string;
   userPaymentDetails?: IReadUserPaymentByUserIdDto[];
   addUserPayment;
   tryAgainError?: boolean;
@@ -46,13 +48,15 @@ export class EditUserPaymentComponent implements OnInit {
       this.userLoggedEmail = email;
       this.addPayment
         .getUserByEmail(this.userLoggedEmail!)
-        .pipe(switchMap((usr) => this.addPayment.getPaymentByUserId(usr.id)))
+        .pipe(
+          switchMap((usr) => {
+            this.userId = usr.id;
+            return this.addPayment.getPaymentByUserId(usr.id);
+          })
+        )
         .subscribe({
-          next: (userPaymentDetails) => {
-            this.userPaymentDetails = userPaymentDetails;
-            let getUsr = userPaymentDetails.find(
-              (obj) => obj.userId == userPaymentDetails[0].userId
-            );
+          next: (usr) => {
+            let getUsr = usr.find((obj) => obj.userId == this.userId);
             let addPayment = {
               PaymentType: getUsr!.paymentType,
               Provider: getUsr!.provider,
@@ -62,8 +66,24 @@ export class EditUserPaymentComponent implements OnInit {
             this.userId = getUsr?.userId;
             this.addUserPayment.setValue(addPayment);
           },
-          error: (err) => console.log(err),
         });
+      // .subscribe({
+      //   next: (userPaymentDetails) => {
+      //     this.userPaymentDetails = userPaymentDetails;
+      //     let getUsr = userPaymentDetails.find(
+      //       (obj) => obj.userId == userPaymentDetails[0].userId
+      //     );
+      //     let addPayment = {
+      //       PaymentType: getUsr!.paymentType,
+      //       Provider: getUsr!.provider,
+      //       AccountNumber: getUsr!.accountNumber,
+      //       ExpireDate: getUsr!.expireDate,
+      //     };
+      //     this.userId = getUsr?.userId;
+      //     this.addUserPayment.setValue(addPayment);
+      //   },
+      //   error: (err) => console.log(err),
+      // });
     });
   }
   handleSubmit($event: SubmitEvent) {
