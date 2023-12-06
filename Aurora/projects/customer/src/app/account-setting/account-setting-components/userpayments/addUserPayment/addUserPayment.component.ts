@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IAddUserPayment } from 'Dtos/User/IAddUserPayment';
 import { AccountSettingService } from '../../../AccSettingService/accountSetting.service';
+<<<<<<< HEAD
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+=======
 import { UserService } from 'projects/customer/src/app/authentication/services/user.service';
 import { switchMap } from 'rxjs/operators';
 import { IReadUserByEmailDto } from 'Dtos/User/IReadUserByEmailDto';
+>>>>>>> 571f6b561145b81a64f27d4b5873663ead75e975
 @Component({
   selector: 'app-addUserPayment',
   templateUrl: './addUserPayment.component.html',

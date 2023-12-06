@@ -1,4 +1,7 @@
 .card {
+  margin-top: 15px; 
+  margin-bottom: 15px; 
+  margin-right: 15px;
   background-color: #d5f2e3;
   transition: 0.5s;
   -webkit-transition: 0.5s;
@@ -22,8 +25,12 @@
 }
 #productscards {
   margin-top: 5vh;
-  width: 80%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+.cardsholder{
+display: flex;
+width: 80%;
+margin: auto;
 }
