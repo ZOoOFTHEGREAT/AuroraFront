@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IAddUserPayment } from 'Dtos/User/IAddUserPayment';
 import { AccountSettingService } from '../../../AccSettingService/accountSetting.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-addUserPayment',
   templateUrl: './addUserPayment.component.html',

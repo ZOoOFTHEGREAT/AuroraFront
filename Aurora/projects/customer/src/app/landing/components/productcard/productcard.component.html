@@ -1,19 +1,20 @@
+<section class="cardsholder">
 <div id="productscards">
-  <div class="card" style="width: 25rem">
-    <img
-      src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp"
-      class="card-img-top"
-      alt="..."
-    />
+  <div class="card" style="width: 25rem"*ngFor="let product of products">
+    <div  routerLink="/product/{{product.id}}">
+        <img *ngIf="product.images && product.images.length > 0" src="{{product.images[0].imageUrl}}" class="card-img-top" alt="..."/>
+      
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
+      <h5 class="card-title">{{product.name}}</h5>
       <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+        {{product.description}}   
       </p>
     </div>
   </div>
 </div>
+    </div>
+    
+</section>
 <!--
   1 <app-select [data]="categories" [title]="'Categories'" (selectedValue)="filterCategory($event)" ></app-select>
   *ngIf="!loading"
@@ -24,3 +25,7 @@
     </div>
 
 -->
+
+<!-- <div *ngFor="let item of product.images">
+  <img src="{{item.imageUrl}}" class="card-img-top" alt="..."/>
+</div> -->

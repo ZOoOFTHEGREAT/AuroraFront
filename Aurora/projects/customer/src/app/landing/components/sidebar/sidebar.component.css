@@ -1,4 +1,9 @@
-.w3-sidebar{
-    height: fit-content;
-    position: absolute!important;
+.sidebar{
+    background-color: #044E2E!important;
+    height:fit-content!important ;
+}
+
+li a:hover {
+    text-decoration:underline;
+    cursor:pointer !important;
 }

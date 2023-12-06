@@ -23,7 +23,7 @@ const routes: Routes = [
       ),
   },
   { path: 'cart', component: CartComponent },
-  { path: 'product', component: ProductdetailsComponent },
+  { path: 'product/:Id', component: ProductdetailsComponent },
   // {path:'orderhistory',component:}
   // {path:'placeorder',component:}
 

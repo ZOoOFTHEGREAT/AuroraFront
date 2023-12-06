@@ -8,3 +8,10 @@
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to right,#73BA9B)
   }
+  .delete{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    height: 40px!important;
+    width: 80px!important;
+  }

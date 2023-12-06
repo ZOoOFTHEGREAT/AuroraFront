@@ -1,0 +1,14 @@
+.long{
+    display: flex;
+}
+.wide{
+    display: flex;
+    flex-direction: column;
+}
+app-sidebar{
+    width: 20%;
+    margin-right: 30px;
+}
+app-slider{
+    margin-bottom: 5vh;
+}
