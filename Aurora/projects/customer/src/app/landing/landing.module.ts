@@ -12,7 +12,6 @@ import { SliderComponent } from './components/slider/slider.component';
 import { CarouselModule } from 'primeng/carousel';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { RouterModule } from '@angular/router';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { LandingService } from 'projects/admin/src/app/landing/services/landing.service';
 
 @NgModule({
@@ -33,7 +32,6 @@ import { LandingService } from 'projects/admin/src/app/landing/services/landing.
     SidebarModule,
     CarouselModule,
     RouterModule,
-    SlickCarouselModule,
   ],
   exports: [
     NavbarComponent,

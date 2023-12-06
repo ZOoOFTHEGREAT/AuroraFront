@@ -26,12 +26,8 @@ const routes: Routes = [
       ),
   },
   { path: 'cart', component: CartComponent },
-<<<<<<< HEAD
-  { path: 'product', component: ProductdetailsComponent },
   { path: 'placeorder', component: PlaceorderComponent },
-=======
   { path: 'product/:Id', component: ProductdetailsComponent },
->>>>>>> b7843d48eb933e7257a30ecf4086bf5129e2a423
   // {path:'orderhistory',component:}
   // {path:'placeorder',component:}
 

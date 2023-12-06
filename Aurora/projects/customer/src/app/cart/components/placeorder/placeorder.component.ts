@@ -7,7 +7,6 @@ import { ReadAllShippingCompanies } from 'Dtos/Shipping Company/ReadAllShippingC
 import { IReadUserPaymentByUserIdDto } from 'Dtos/User/IReadUserPaymentByUserIdDto';
 import { forkJoin, switchMap } from 'rxjs';
 import { IReadUserAddresByUserIdDto } from 'Dtos/User/IReadUserAddresByUserIdDto';
-import { IAddUserAddress } from 'Dtos/User/IAddUserAddress';
 import {
   FormBuilder,
   FormControl,
@@ -15,7 +14,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IAddOrderDto } from 'Dtos/Order/IAddOrderDto';
+import AddOrderDto from 'Dtos/Order/AddOrderDto';
 
 @Component({
   selector: 'app-placeorder',
@@ -80,7 +79,7 @@ export class PlaceorderComponent implements OnInit {
     if (this.placeOrder.invalid) return;
     console.log('error');
 
-    let placeOrd: IAddOrderDto = {
+    let placeOrd: AddOrderDto = {
       totalPrice: totalPr,
       userId: this.userDetails.id,
       shippingCompanyId: this.placeOrder.value.shippId! as unknown as number,
