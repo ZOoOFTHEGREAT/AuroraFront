@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="formstyle">
+    <h2>Sign in</h2>
+    <div>
+      <div class="d-flex justify-content-center align-items-center">
+        <img
+          class="loginImg rounded"
+          src="../../../../assets/WhatsApp Image 2023-11-10 at 7.09.00 PM (1).jpeg"
+        />
+      </div>
+      <form (submit)="HandleSumbit($event)" [formGroup]="adminLogin">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            formControlName="Email"
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="Email?.touched && adminLogin.controls.Email.errors?.['required']"
+        >
+          Email is required
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            formControlName="Password"
+            type="password"
+            class="form-control"
+            id="password"
+          />
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="Password?.touched && adminLogin.controls.Password.errors?.['required']"
+        >
+          Password is required
+        </div>
+        <button type="submit" class="btn btn-outline-success">Sign in</button>
+      </form>
+    </div>
+    <div class="alert alert-warning m-2" *ngIf="isExist">
+      Please Enter Correct Data
+    </div>
+  </div>
+</div>

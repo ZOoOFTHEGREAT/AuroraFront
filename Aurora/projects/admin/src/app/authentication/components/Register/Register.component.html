@@ -1,13 +1,13 @@
 <div class="container">
   <div class="formstyle">
-    <h2>Create account</h2>
+    <h2>Create admin account</h2>
     <div class="d-flex justify-content-center align-items-center">
       <img
         class="registerImg rounded"
         src="../../../../assets/WhatsApp Image 2023-11-10 at 7.09.00 PM (1).jpeg"
       />
     </div>
-    <form (submit)="handleSubmit($event)" [formGroup]="userRegister">
+    <form (submit)="handleSubmit($event)" [formGroup]="adminRegister">
       <div class="mb-3">
         <label for="username" class="form-label">User Name</label>
         <input
@@ -20,19 +20,19 @@
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="UserName?.touched && userRegister.controls.UserName.errors?.['required']"
+        *ngIf="UserName?.touched && adminRegister .controls.UserName.errors?.['required']"
       >
         This field is required
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="userRegister.controls.UserName.touched && userRegister.controls.UserName.errors?.['maxlength']"
+        *ngIf="adminRegister  .controls.UserName.touched && adminRegister .controls.UserName.errors?.['maxlength']"
       >
         The user name is too long
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="userRegister.controls.UserName.touched && userRegister.controls.UserName.errors?.['minlength']"
+        *ngIf="adminRegister  .controls.UserName.touched && adminRegister .controls.UserName.errors?.['minlength']"
       >
         The user name is too short
       </div>
@@ -60,19 +60,19 @@
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="Fname?.touched && userRegister.controls.Fname.errors?.['required']"
+        *ngIf="Fname?.touched && adminRegister  .controls.Fname.errors?.['required']"
       >
         This field is required
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="userRegister.controls.Fname.touched && userRegister.controls.Fname.errors?.['maxlength']"
+        *ngIf="adminRegister  .controls.Fname.touched && adminRegister  .controls.Fname.errors?.['maxlength']"
       >
         The First name is too long
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="userRegister.controls.Fname.touched && userRegister.controls.Fname.errors?.['minlength']"
+        *ngIf="adminRegister  .controls.Fname.touched && adminRegister  .controls.Fname.errors?.['minlength']"
       >
         The First name is too short
       </div>
@@ -87,19 +87,19 @@
         />
         <div
           class="alert alert-warning"
-          *ngIf="Lname?.touched && userRegister.controls.Lname.errors?.['required']"
+          *ngIf="Lname?.touched && adminRegister  .controls.Lname.errors?.['required']"
         >
           This field is required
         </div>
         <div
           class="alert alert-warning"
-          *ngIf="userRegister.controls.Lname.touched && userRegister.controls.Lname.errors?.['maxlength']"
+          *ngIf="adminRegister  .controls.Lname.touched && adminRegister  .controls.Lname.errors?.['maxlength']"
         >
           The Last name is too long
         </div>
         <div
           class="alert alert-warning"
-          *ngIf="userRegister.controls.Lname.touched && userRegister.controls.Lname.errors?.['minlength']"
+          *ngIf="adminRegister  .controls.Lname.touched && adminRegister  .controls.Lname.errors?.['minlength']"
         >
           The Last name is too short
         </div>
@@ -116,13 +116,13 @@
 
         <div
           class="alert alert-warning"
-          *ngIf="Email?.touched && userRegister.controls.Email.errors?.['required']"
+          *ngIf="Email?.touched && adminRegister  .controls.Email.errors?.['required']"
         >
           This field is required
         </div>
         <div
           class="alert alert-warning"
-          *ngIf="userRegister.controls.Email.touched && userRegister.controls.Email.errors?.['pattern']"
+          *ngIf="adminRegister  .controls.Email.touched && adminRegister  .controls.Email.errors?.['pattern']"
         >
           Please enter email in correct format
         </div>
@@ -138,13 +138,13 @@
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="Password?.touched && userRegister.controls.Password.errors?.['required']"
+        *ngIf="Password?.touched && adminRegister .controls.Password.errors?.['required']"
       >
         This field is required
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="userRegister.controls.Password.touched && userRegister.controls.Password.errors?.['pattern']"
+        *ngIf="adminRegister  .controls.Password.touched && adminRegister .controls.Password.errors?.['pattern']"
       >
         <ol>
           <li>Password length between 8 and 20 characters</li>
@@ -167,7 +167,7 @@
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="ConfirmPassword?.touched && userRegister.controls.ConfirmPassword.errors?.['required']"
+        *ngIf="ConfirmPassword?.touched && adminRegister  .controls.ConfirmPassword.errors?.['required']"
       >
         This field is required
       </div>
@@ -175,7 +175,7 @@
         class="alert alert-warning"
         *ngIf="
           ConfirmPassword?.touched &&
-          userRegister.value.Password != userRegister.value.ConfirmPassword
+          adminRegister.value.Password != adminRegister.value.ConfirmPassword
         "
       >
         Password doesn't match
@@ -191,19 +191,19 @@
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="PhoneNumber?.touched && userRegister.controls.PhoneNumber.errors?.['required']"
+        *ngIf="PhoneNumber?.touched && adminRegister  .controls.PhoneNumber.errors?.['required']"
       >
         This field is required
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="userRegister.controls.PhoneNumber.touched && userRegister.controls.PhoneNumber.errors?.['maxlength']"
+        *ngIf="adminRegister  .controls.PhoneNumber.touched && adminRegister  .controls.PhoneNumber.errors?.['maxlength']"
       >
         Please Enter Correct Phone Number
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="userRegister.controls.PhoneNumber.touched && userRegister.controls.PhoneNumber.errors?.['minlength']"
+        *ngIf="adminRegister  .controls.PhoneNumber.touched && adminRegister  .controls.PhoneNumber.errors?.['minlength']"
       >
         Please Enter Correct Phone Number
       </div>
@@ -214,13 +214,14 @@
           type="text"
           readonly
           class="form-control"
-          placeholder="Customer"
           id="role"
+          value="admin"
+          placeholder="Admin"
         />
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="PhoneNumber?.touched && userRegister.controls.PhoneNumber.errors?.['required']"
+        *ngIf="PhoneNumber?.touched && adminRegister  .controls.PhoneNumber.errors?.['required']"
       >
         This field is required
       </div>
@@ -235,19 +236,19 @@
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="ZipCode?.touched && userRegister.controls.ZipCode.errors?.['required']"
+        *ngIf="ZipCode?.touched && adminRegister  .controls.ZipCode.errors?.['required']"
       >
         This field is required
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="userRegister.controls.ZipCode.touched && userRegister.controls.ZipCode.errors?.['maxlength']"
+        *ngIf="adminRegister  .controls.ZipCode.touched && adminRegister  .controls.ZipCode.errors?.['maxlength']"
       >
         Please Enter Correct Zip Code
       </div>
       <div
         class="alert alert-warning"
-        *ngIf="userRegister.controls.ZipCode.touched && userRegister.controls.ZipCode.errors?.['minlength']"
+        *ngIf="adminRegister  .controls.ZipCode.touched && adminRegister  .controls.ZipCode.errors?.['minlength']"
       >
         Please Enter Correct Zip Code
       </div>
@@ -257,7 +258,7 @@
       <button
         type="submit"
         class="btn btn-primary"
-        [disabled]="userRegister.invalid"
+        [disabled]="adminRegister.invalid"
       >
         Submit
       </button>
@@ -265,10 +266,10 @@
   </div>
 </div>
 
-<!-- <div>
-  {{ userRegister.value | json }}
-</div>
 <div>
+  {{ adminRegister.value | json }}
+</div>
+<!-- <div>
   <h2>fname</h2>
   {{ Fname?.errors | json }}
 </div> -->

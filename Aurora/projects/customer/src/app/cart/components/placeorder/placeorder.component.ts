@@ -5,41 +5,91 @@ import { AccountSettingService } from '../../../account-setting/AccSettingServic
 import { IReadUserByEmailDto } from 'Dtos/User/IReadUserByEmailDto';
 import { ReadAllShippingCompanies } from 'Dtos/Shipping Company/ReadAllShippingCompanies';
 import { IReadUserPaymentByUserIdDto } from 'Dtos/User/IReadUserPaymentByUserIdDto';
-import { switchMap } from 'rxjs';
+import { forkJoin, switchMap } from 'rxjs';
+import { IReadUserAddresByUserIdDto } from 'Dtos/User/IReadUserAddresByUserIdDto';
+import { IAddUserAddress } from 'Dtos/User/IAddUserAddress';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
+import { IAddOrderDto } from 'Dtos/Order/IAddOrderDto';
 
 @Component({
   selector: 'app-placeorder',
   templateUrl: './placeorder.component.html',
-  styleUrls: ['./placeorder.component.css']
+  styleUrls: ['./placeorder.component.css'],
 })
 export class PlaceorderComponent implements OnInit {
-  userEmail!:string;
-  userDetails!:IReadUserByEmailDto;
-  getAllShippingComp?:ReadAllShippingCompanies[];
-  userPayments!:IReadUserPaymentByUserIdDto[];
-  constructor(private placeOrder:PlaceOrderService, private userService :UserService,
-    private accSetting:AccountSettingService) {
+  userEmail!: string;
+  userDetails!: IReadUserByEmailDto;
+  getAllShippingComp?: ReadAllShippingCompanies[];
+  userPayments!: IReadUserPaymentByUserIdDto[];
+  userAddress!: IReadUserAddresByUserIdDto[];
+  placeOrder;
+  constructor(
+    private userService: UserService,
+    private accSetting: AccountSettingService,
+    private router: Router,
+    private placeordrService: PlaceOrderService,
+    public fB: FormBuilder
+  ) {
+    this.placeOrder = new FormGroup({
+      totalPrice: new FormControl('', [Validators.required]),
+      userId: new FormControl('', [Validators.required]),
+      shippId: new FormControl('', [Validators.required]),
+      addId: new FormControl('', [Validators.required]),
+    });
   }
+
   ngOnInit(): void {
-   
-    this.userService.userEmail.subscribe((email)=> this.userEmail=email);
-    this.accSetting.getUserByEmail(this.userEmail).pipe(
-      switchMap((usr)=>this.accSetting.getPaymentByUserId(usr.id))).subscribe({
-        next:(usrPayment)=>this.userPayments=usrPayment,
-        error:(err)=>console.log(err)
-      })
- 
+    this.userService.userEmail.subscribe((email) => (this.userEmail = email));
+    this.accSetting.getUserByEmail(this.userEmail).subscribe({
+      next: (usrByEmail) => (this.userDetails = usrByEmail),
+      error: (err) => console.log(err),
+    });
+    this.accSetting
+      .getUserByEmail(this.userEmail)
+      .pipe(switchMap((usr) => this.accSetting.getPaymentByUserId(usr.id)))
+      .subscribe({
+        next: (usrPayment) => {
+          this.userPayments = usrPayment;
+          this.accSetting
+            .getAddressByUserId(this.userDetails.id)
+            .subscribe((userAddres) => (this.userAddress = userAddres));
+        },
+        error: (err) => console.log(err),
+      });
+
     this.accSetting.getAllShippingCompanies().subscribe({
-      next:(allShipComp)=>{
-        this.getAllShippingComp=allShipComp
-        console.log('=========AllShippcom===========')
-        console.log(this.getAllShippingComp)
-        console.log('====================')
+      next: (allShipComp) => {
+        this.getAllShippingComp = allShipComp;
+        console.log('=========AllShippcom===========');
+        console.log(this.getAllShippingComp);
+        console.log('====================');
       },
-      error:(err)=>console.log(err)
-    })
-    
+      error: (err) => console.log(err),
+    });
   }
+  handleSumbit(event: SubmitEvent) {
+    let totalPr: number = this.placeOrder.value.totalPrice as unknown as number;
+    event.preventDefault;
+    console.log('error');
+    if (this.placeOrder.invalid) return;
+    console.log('error');
 
-
+    let placeOrd: IAddOrderDto = {
+      totalPrice: totalPr,
+      userId: this.userDetails.id,
+      shippingCompanyId: this.placeOrder.value.shippId! as unknown as number,
+      addressId: this.placeOrder.value.addId as unknown as number,
+    };
+    this.placeordrService.addOrder(placeOrd).subscribe({
+      next: () => console.log('done'),
+      error: () => console.log('fail'),
+    });
+    console.log(this.userAddress);
+  }
 }

@@ -1,41 +1,68 @@
 <div class="container">
-  <h2 class="card-header"> My Orders</h2>
+  <h2 class="card-header">My Orders</h2>
   <article class="card">
-      <div class="card-body"*ngFor="let item of usrOrder">
-          <article class="card">
-              <div class="card-body row">
-                <div class="col"> <strong>Order ID:</strong> <br>{{item.id}} </div>
-                  <div class="col"> <strong>Estimated Delivery time:</strong> <br>{{item.expectedDeliveryDate}}</div>
-                  <div class="col" >
-                    <div *ngFor="let shipComp of shippingCompanies">
-                      <div class="text-center" *ngIf="item.shippingCompanyId==shipComp.id"> <strong>Shipping Company:
-                      </strong> <br>{{shipComp.name}}</div>
-                    </div>
-                    </div>
-                  <div class="col"> <strong>Status:</strong> <br> {{item.status}} </div>
-                  <div class="col"> <strong>Created at:</strong> <br> {{item.createdAt}}</div>
-                  <div class="col"> <strong>Total price:</strong> <br> {{item.totalPrice}} </div>
-                  <div *ngFor="let orderitm of item.orderItems">
-                    <ul class="list-group">
-                      <label >Order Id : {{item.id}} </label>
-                      <label class="list-group-item">Order item </label>
-                      <li class="list-group-item disabled">Quantity : {{orderitm.quantity}}</li>
-                    </ul>
-                  </div>
-                  <h5>Payment details </h5>
-                 <div *ngFor="let paymentDet of item.paymentDetails">
-                  <ul class="list-group">
-                    <label >Order Id : {{item.id}} </label>
-                    <li class="list-group-item disabled">Payment amount : {{paymentDet.amount}}</li>
-                    <li class="list-group-item disabled">Payement date : {{paymentDet.date}}</li>
-                    <li class="list-group-item disabled">Payment status :{{paymentDet.status}}</li>
-                  </ul>
-                 </div>
+    <div class="card-body" *ngFor="let item of usrOrder">
+      <article class="card">
+        <div class="card-body row">
+          <div class="col"><strong>Order ID:</strong> <br />{{ item.id }}</div>
+          <div class="col">
+            <strong>Estimated Delivery time:</strong> <br />{{
+              item.expectedDeliveryDate
+            }}
+          </div>
+          <div class="col">
+            <div *ngFor="let shipComp of shippingCompanies">
+              <div
+                class="text-center"
+                *ngIf="item.shippingCompanyId == shipComp.id"
+              >
+                <strong>Shipping Company: </strong> <br />{{ shipComp.name }}
               </div>
-          </article>
-          <hr>
-      </div>
+            </div>
+          </div>
+          <div class="col">
+            <strong>Status:</strong> <br />
+            {{ item.status }}
+          </div>
+          <div class="col">
+            <strong>Created at:</strong> <br />
+            {{ item.createdAt }}
+          </div>
+          <div class="col">
+            <strong>Total price:</strong> <br />
+            {{ item.totalPrice }}
+          </div>
+          <div *ngFor="let orderitm of item.orderItems">
+            <ul class="list-group">
+              <label>Order Id : {{ item.id }} </label>
+              <label class="list-group-item">Order item </label>
+              <li class="list-group-item disabled">
+                Quantity : {{ orderitm.quantity }}
+              </li>
+            </ul>
+          </div>
+          <h5>Payment details</h5>
+          <div *ngFor="let paymentDet of item.paymentDetails">
+            <ul class="list-group">
+              <label>Order Id : {{ item.id }} </label>
+              <li class="list-group-item disabled">
+                Payment amount : {{ paymentDet.amount }}
+              </li>
+              <li class="list-group-item disabled">
+                Payement date : {{ paymentDet.date }}
+              </li>
+              <li class="list-group-item disabled">
+                Payment status :{{ paymentDet.status }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <hr />
+    </div>
   </article>
- 
-  <a href="#" class="btn btn-success" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to Home</a>
+
+  <a href="#" class="btn btn-success" data-abc="true">
+    <i class="fa fa-chevron-left"></i> Back to Home</a
+  >
 </div>

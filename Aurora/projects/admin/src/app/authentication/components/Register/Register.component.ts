@@ -3,21 +3,20 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  PatternValidator,
   Validators,
 } from '@angular/forms';
-import { IRegister } from 'Dtos/User/IRegister';
 import { Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
+import { IRegister } from 'Dtos/User/IRegister';
+import { AuthService } from '../../Service/auth.service';
 
 @Component({
-  selector: 'app-registerform',
-  templateUrl: './registerform.component.html',
-  styleUrls: ['./registerform.component.css'],
+  selector: 'app-Register',
+  templateUrl: './Register.component.html',
+  styleUrls: ['./Register.component.css'],
 })
-export class RegisterformComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   roleValue?: string;
-  userRegister;
+  adminRegister;
   tryAgainError?: boolean = false;
   emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   passwordRegex: RegExp =
@@ -25,10 +24,10 @@ export class RegisterformComponent implements OnInit {
 
   constructor(
     private fB: FormBuilder,
-    private registerService: UserService,
+    private registerService: AuthService,
     private router: Router
   ) {
-    this.userRegister = new FormGroup({
+    this.adminRegister = new FormGroup({
       UserName: new FormControl<string>('', [
         Validators.required,
         Validators.maxLength(20),
@@ -72,44 +71,44 @@ export class RegisterformComponent implements OnInit {
   ngOnInit(): void {}
   // property readOnly
   get UserName() {
-    return this.userRegister.get('UserName');
+    return this.adminRegister.get('UserName');
   }
   get Fname() {
-    return this.userRegister.get('Fname');
+    return this.adminRegister.get('Fname');
   }
   get Lname() {
-    return this.userRegister.get('Lname');
+    return this.adminRegister.get('Lname');
   }
   get Email() {
-    return this.userRegister.get('Email');
+    return this.adminRegister.get('Email');
   }
   get Password() {
-    return this.userRegister.get('Password');
+    return this.adminRegister.get('Password');
   }
   get PhoneNumber() {
-    return this.userRegister.get('PhoneNumber');
+    return this.adminRegister.get('PhoneNumber');
   }
   get Role() {
-    return this.userRegister.get('UserName');
+    return this.adminRegister.get('UserName');
   }
   get ZipCode() {
-    return this.userRegister.get('ZipCode');
+    return this.adminRegister.get('ZipCode');
   }
   get ConfirmPassword() {
-    return this.userRegister.get('ConfirmPassword');
+    return this.adminRegister.get('ConfirmPassword');
   }
   handleSubmit(e: Event) {
     e.preventDefault();
-    if (this.userRegister.invalid) return;
+    if (this.adminRegister.invalid) return;
     const usr: IRegister = {
-      userName: this.userRegister.value.UserName!,
-      fname: this.userRegister.value.Fname!,
-      lname: this.userRegister.value.Lname!,
-      email: this.userRegister.value.Email!,
-      passwordHash: this.userRegister.value.Password!,
-      phoneNumber: this.userRegister.value.PhoneNumber!,
-      role: 'customer',
-      zipCode: this.userRegister.value.ZipCode!,
+      userName: this.adminRegister.value.UserName!,
+      fname: this.adminRegister.value.Fname!,
+      lname: this.adminRegister.value.Lname!,
+      email: this.adminRegister.value.Email!,
+      passwordHash: this.adminRegister.value.Password!,
+      phoneNumber: this.adminRegister.value.PhoneNumber!,
+      role: 'admin',
+      zipCode: this.adminRegister.value.ZipCode!,
     };
     this.registerService.addUser(usr).subscribe({
       next: () => {
@@ -130,30 +129,3 @@ export class RegisterformComponent implements OnInit {
     // });
   }
 }
-// constructor(private fB: FormBuilder) {
-//   this.userRegister = fB.group({
-//     UserName: [
-//       '',
-//       Validators.required,
-//       Validators.maxLength(20),
-//       Validators.minLength(5),
-//     ],
-//     Fname: [
-//       '',
-//       Validators.required,
-//       Validators.maxLength(10),
-//       Validators.minLength(3),
-//     ],
-//     Lname: [
-//       '',
-//       Validators.required,
-//       Validators.maxLength(10),
-//       Validators.minLength(3),
-//     ],
-//     Email: ['', Validators.required, Validators.email],
-//     Password: ['', Validators.required],
-//     PhoneNumber: ['', Validators.required],
-//     Role: ['', Validators.required],
-//     ZipCode: ['', Validators.required],
-//   });
-// }

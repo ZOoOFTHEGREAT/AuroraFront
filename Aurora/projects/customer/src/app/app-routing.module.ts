@@ -4,6 +4,7 @@ import { CartComponent } from './cart/components/cart/cart.component';
 import { ProductdetailsComponent } from './landing/components/productdetails/productdetails.component';
 import { RouterModule, Routes } from '@angular/router';
 import { accountsettingGuard } from './authentication/accountsetting.guard';
+import { PlaceorderComponent } from './cart/components/placeorder/placeorder.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
   },
   { path: 'cart', component: CartComponent },
   { path: 'product', component: ProductdetailsComponent },
+  { path: 'placeorder', component: PlaceorderComponent },
   // {path:'orderhistory',component:}
   // {path:'placeorder',component:}
 

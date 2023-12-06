@@ -8,21 +8,25 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { LandingModule } from './landing/landing.module';
 import { DashboardComponent } from './landing/components/dashboard/dashboard.component';
 import { ProductsModule } from './products/products.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-    declarations: [
-        AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     UsersModule,
-  AuthenticationModule,
+    AuthenticationModule,
     LandingModule,
     ProductsModule,
-  UsersModule
-],
-    providers: [],
-    bootstrap: [AppComponent],
+    UsersModule,
+    ReactiveFormsModule,
+    RouterModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
