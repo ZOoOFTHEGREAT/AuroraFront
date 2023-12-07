@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IAddProductDto } from 'Dtos/Product/IAddProductDto';
 import { ILogin } from 'Dtos/User/ILogin';
 import { IRegister } from 'Dtos/User/IRegister';
 import IToken from 'Dtos/User/IToken';
@@ -32,5 +33,10 @@ export class AuthService {
         localStorage.setItem('token', tokenDto.token);
       })
     );
+  }
+
+  addProduct(prod: IAddProductDto): Observable<IAddProductDto> {
+    const apiUrl = `${environment.apiUrl}/api/Product/AddProduct`;
+    return this.httpClient.post<IAddProductDto>(apiUrl, prod);
   }
 }

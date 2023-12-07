@@ -215,7 +215,6 @@
           readonly
           class="form-control"
           id="role"
-          value="admin"
           placeholder="Admin"
         />
       </div>
@@ -255,34 +254,7 @@
       <div class="alert alert-warning" *ngIf="tryAgainError">
         This user name is already exist
       </div>
-      <button
-        type="submit"
-        class="btn btn-primary"
-        [disabled]="adminRegister.invalid"
-      >
-        Submit
-      </button>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
 </div>
-
-<div>
-  {{ adminRegister.value | json }}
-</div>
-<!-- <div>
-  <h2>fname</h2>
-  {{ Fname?.errors | json }}
-</div> -->
-<!-- <div>
-  <h2>username</h2>
-  {{ UserName?.errors | json }}
-</div>
-
-<div>
-  <h2>Email</h2>
-  {{ Email?.errors | json }}
-</div>
-<div>
-  <h2>fname</h2>
-  {{ Fname?.errors | json }}
-</div> -->

@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="formstyle">
+    <h2>Add Product</h2>
+    <div>
+      <div class="d-flex justify-content-center align-items-center">
+        <img
+          class="loginImg rounded"
+          src="../../../../assets/WhatsApp Image 2023-11-10 at 7.09.00 PM (1).jpeg"
+        />
+      </div>
+      <form (submit)="HandleSumbit($event)" [formGroup]="addProductForm">
+        <div class="mb-3">
+          <label for="Name" class="form-label">Name: </label>
+          <input
+            formControlName="Name"
+            type="text"
+            class="form-control"
+            id="Name"
+          />
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="Name?.touched && addProductForm.controls.Name.errors?.['required']"
+        >
+          Name is required
+        </div>
+        <div class="mb-3">
+          <label for="Price" class="form-label">Price: </label>
+          <input
+            formControlName="Price"
+            type="number"
+            class="form-control"
+            id="Price"
+          />
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="Price?.touched && addProductForm.controls.Price.errors?.['required']"
+        >
+          Price is required
+        </div>
+        <div class="mb-3">
+          <label for="Quantity" class="form-label">Quantity: </label>
+          <input
+            formControlName="Quantity"
+            type="number"
+            class="form-control"
+            id="Quantity"
+          />
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="Quantity?.touched && addProductForm.controls.Quantity.errors?.['required']"
+        >
+          Quantity is required
+        </div>
+        <div class="mb-3">
+          <label for="DiscountPercent" class="form-label"
+            >DiscountPercent:
+          </label>
+          <input
+            formControlName="DiscountPercent"
+            type="number"
+            class="form-control"
+            id="DiscountPercent"
+          />
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="DiscountPercent?.touched && addProductForm.controls.DiscountPercent.errors?.['required']"
+        >
+          DiscountPercent is required
+        </div>
+        <div class="mb-3">
+          <label for="Description" class="form-label">Description: </label>
+          <input
+            formControlName="Description"
+            type="text"
+            class="form-control"
+            id="Description"
+          />
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="Description?.touched && addProductForm.controls.Description.errors?.['required']"
+        >
+          Description is required
+        </div>
+        <div class="mb-3">
+          <label for="CategoryId" class="form-label">CategoryId: </label>
+          <input
+            formControlName="CategoryId"
+            type="CategoryId"
+            class="form-control"
+            id="CategoryId"
+          />
+        </div>
+        <div
+          class="alert alert-warning"
+          *ngIf="CategoryId?.touched && addProductForm.controls.CategoryId.errors?.['required']"
+        >
+          CategoryId is required
+        </div>
+        <button
+          [disabled]="addProductForm.invalid"
+          type="submit"
+          class="btn btn-outline-success"
+        >
+          Add
+        </button>
+      </form>
+    </div>
+    <div class="alert alert-warning m-2" *ngIf="isExist">
+      Please Enter Correct Data
+    </div>
+  </div>
+</div>

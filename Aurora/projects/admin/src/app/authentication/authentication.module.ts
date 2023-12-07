@@ -6,11 +6,12 @@ import { AuthService } from './Service/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthunticationRoutingModule } from './authuntication-routing.module';
 import { RegisterComponent } from './components/Register/Register.component';
+import { AddproductComponent } from './components/addproduct/addproduct.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, AddproductComponent],
   imports: [CommonModule, ReactiveFormsModule, AuthunticationRoutingModule],
-  exports: [LoginComponent, RegisterComponent],
+  exports: [LoginComponent, RegisterComponent, AddproductComponent],
 })
 export class AuthenticationModule {}
 // [CommonModule, ReactiveFormsModule, AuthunticationRoutingModule]

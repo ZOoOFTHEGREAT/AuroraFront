@@ -21,19 +21,7 @@
       id="navbarSupportedContent"
     >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" id="search">
-          <form class="d-flex searchform" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search Category or Product"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
-        </li>
+        <li></li>
 
         <li class="nav-item" id="log">
           <a class="nav-link" href="#">
@@ -50,9 +38,6 @@
               />
             </svg>
           </a>
-          <a routerLink="/authuntication/login" class="btn btn-outline-success">
-            Loginnnn
-          </a>
           <a
             *ngIf="!navBarIsLoggedIn"
             routerLink="/authuntication/login"
@@ -60,6 +45,13 @@
           >
             Login
           </a>
+          <a
+            *ngIf="!navBarIsLoggedIn"
+            class="btn btn-success"
+            routerLink="/authuntication/register"
+            >Register</a
+          >
+
           <h3 *ngIf="navBarIsLoggedIn" class="fw-bold">Hello</h3>
           <div class="collapse navbar-collapse navbar-control Register"></div>
           <a

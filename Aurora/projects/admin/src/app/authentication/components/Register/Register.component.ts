@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   passwordRegex: RegExp =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,20}$/;
+  admin!: string;
 
   constructor(
     private fB: FormBuilder,
@@ -68,7 +69,9 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.admin = 'admin';
+  }
   // property readOnly
   get UserName() {
     return this.adminRegister.get('UserName');

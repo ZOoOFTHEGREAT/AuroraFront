@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<!-- <form [formGroup]="form">
 <input type="text" formControlName="name" placeholder="product Name"/>
 <br/>
 <input type="text" formControlName="quantity" placeholder="Quantity"/>
@@ -7,5 +7,51 @@
 <br/>
 <button (click)="addProduct($event)">submit</button>
 <br/>
-</form>
+</form> -->
+<div class="container">
+  <form (submit)="HandleSumbit($event)" [formGroup]="form">
+    <div class="mb-3">
+      <label for="imageUrl" class="form-label">Upload Photo: </label>
+      <input
+        formControlName="imageUrl"
+        placeholder="Generated Image URL"
+        type="text"
+        class="form-control"
+        id="imageUrl"
+      />
+    </div>
+    <div class="m-3">
+      <input type="file" (change)="UploadPhoto($event)" />
+      <br />
+    </div>
+    <div
+      class="alert alert-warning"
+      *ngIf="imageUrl?.touched && form.controls.imageUrl.errors?.['required']"
+    >
+      Url is required
+    </div>
+    <div class="mb-3">
+      <label for="productId" class="form-label">Product ID: </label>
+      <input
+        formControlName="productId"
+        type="number"
+        class="form-control"
+        id="productId"
+      />
+    </div>
+    <div
+      class="alert alert-warning"
+      *ngIf="productId?.touched && form.controls.productId.errors?.['required']"
+    >
+      productId is required
+    </div>
 
+    <button
+      [disabled]="form.invalid"
+      type="submit"
+      class="btn btn-outline-success class=m-3"
+    >
+      Add
+    </button>
+  </form>
+</div>
