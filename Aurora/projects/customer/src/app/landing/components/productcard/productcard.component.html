@@ -1,12 +1,14 @@
 <section class="cardsholder">
 <div id="productscards">
-  <div class="card" style="width: 25rem"*ngFor="let product of products">
+  <div class="card" style="width: 25rem"*ngFor="let product of products" >
+
     <div  routerLink="/product/{{product.id}}">
         <img *ngIf="product.images && product.images.length > 0" src="{{product.images[0].imageUrl}}" class="card-img-top" alt="..."/>
       
     <div class="card-body">
       <h5 class="card-title">{{product.name}}</h5>
       <p class="card-text">
+        {{product.id}}
         {{product.description}}   
       </p>
     </div>

@@ -15,6 +15,8 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import AddOrderDto from 'Dtos/Order/AddOrderDto';
+import { LandingService } from '../../../landing/services/landing.service';
+import { OrderDetailSending } from 'Dtos/Order/orderDetailSending';
 
 @Component({
   selector: 'app-placeorder',
@@ -27,8 +29,11 @@ export class PlaceorderComponent implements OnInit {
   getAllShippingComp?: ReadAllShippingCompanies[];
   userPayments!: IReadUserPaymentByUserIdDto[];
   userAddress!: IReadUserAddresByUserIdDto[];
+  placeOrd!:OrderDetailSending;
+  
   placeOrder;
   constructor(
+    private landServ :LandingService,
     private userService: UserService,
     private accSetting: AccountSettingService,
     private router: Router,
@@ -49,6 +54,7 @@ export class PlaceorderComponent implements OnInit {
       next: (usrByEmail) => (this.userDetails = usrByEmail),
       error: (err) => console.log(err),
     });
+    this.landServ.orderDetails.subscribe((detail)=>{this.placeOrd=detail})
     this.accSetting
       .getUserByEmail(this.userEmail)
       .pipe(switchMap((usr) => this.accSetting.getPaymentByUserId(usr.id)))

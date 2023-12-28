@@ -96,6 +96,8 @@ export class ProductdetailsComponent implements OnInit {
       totalPrice: this.totalprice,
     };
     this.serviceProduct.orderDetails.next(orderDet);
+    this.router.navigateByUrl('/placeorder');
+
   }
   EditQuantity(quantity: number) {
     this.ChoosenQuantity = quantity;

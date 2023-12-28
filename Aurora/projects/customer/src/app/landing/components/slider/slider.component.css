@@ -1,9 +1,12 @@
+#carouselExample{
+  display: flex;
+  justify-content: center;
+}
 .carousel-item {
-    height: 60vh;
-    
+    height: 60vh!important;
 }
 .carousel-item  img{
-    width: 100%;
-  height: 100%;
-    object-fit: cover;
+    width: 100%!important;
+  height: 100%!important;
+    object-fit:cover!important;
 }

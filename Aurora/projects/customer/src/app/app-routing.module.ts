@@ -5,10 +5,12 @@ import { ProductdetailsComponent } from './landing/components/productdetails/pro
 import { RouterModule, Routes } from '@angular/router';
 import { accountsettingGuard } from './authentication/accountsetting.guard';
 import { PlaceorderComponent } from './cart/components/placeorder/placeorder.component';
+import { OrderdetailsComponent } from './account-setting/account-setting-components/orderdetails/orderdetails.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: MainLayoutComponent },
+  { path: 'product/:Id', component: ProductdetailsComponent },
 
   {
     path: 'authuntication',
@@ -25,9 +27,10 @@ const routes: Routes = [
         (m) => m.AccountSettingModule
       ),
   },
+  {path:'placeorder',component:PlaceorderComponent},
+  {path:'orderdetail',component:OrderdetailsComponent},
   { path: 'cart', component: CartComponent },
   { path: 'placeorder', component: PlaceorderComponent },
-  { path: 'product/:Id', component: ProductdetailsComponent },
   // {path:'orderhistory',component:}
   // {path:'placeorder',component:}
 

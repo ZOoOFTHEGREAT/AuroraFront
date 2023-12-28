@@ -136,7 +136,7 @@
                         <input
                           class="form-check-input"
                           type="radio"
-                          name="flexRadio"
+                          name="flexRadio2"
                           value="{{ addrs.id }}"
                           formControlName="addId"
                           checked
@@ -167,7 +167,7 @@
                 <input
                   class="form-check-input"
                   type="radio"
-                  name="flexRadio"
+                  name="flexRadio4"
                   value="{{ userDetails.id }}"
                   formControlName="userId"
                   checked
@@ -189,7 +189,7 @@
               </div>
               <div>
                 <label>Quantity :</label>
-                <span class="mb-2">Quant:</span>
+                <span class="mb-2">"{{placeOrd.quantity}}"</span>
               </div>
               <div>
                 <label>Price :</label>
@@ -202,6 +202,7 @@
                   <input
                     formControlName="totalPrice"
                     type="number"
+                    value="{{placeOrd.totalPrice}}"
                     class="form-control"
                     id="totalPrice"
                   />
@@ -213,6 +214,7 @@
                   [disabled]="!placeOrder.valid"
                   type="submit"
                   class="col-5 btn btn-outline-success"
+                  routerLink="home"
                 >
                   Check Out
                 </button>
@@ -225,5 +227,3 @@
     </div>
   </div>
 </section>
-{{ placeOrder.valid | json }}
-{{ placeOrder.value | json }}
